@@ -1,0 +1,139 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client"
+  output   = "../app/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum University {
+  UPC
+  UB
+  URV
+}
+
+enum DayOfWeek {
+  MONDAY
+  TUESDAY
+  WEDNESDAY
+  THURSDAY
+  FRIDAY
+  SATURDAY
+  SUNDAY
+}
+
+enum SessionType {
+  THEORY
+  LAB
+  PROBLEMS
+  THEORY_LAB
+}
+
+enum ExamOrDeadlineType {
+  EXAM
+  DEADLINE
+}
+
+model Group {
+  id       String @id @default(cuid())
+  name     String
+  semester Int
+
+  classSessions    ClassSession[]
+  examsOrDeadlines ExamOrDeadline[]
+  userSelections   UserSubjectSelection[]
+
+  @@map("groups")
+}
+
+model Subject {
+  id         String     @id @default(cuid())
+  name       String
+  code       String     @unique
+  ects       Float
+  university University
+  semester   Int
+
+  classSessions    ClassSession[]
+  examsOrDeadlines ExamOrDeadline[]
+  userSelections   UserSubjectSelection[]
+  userGrades       UserGrade[]
+
+  @@map("subjects")
+}
+
+model ClassSession {
+  id        String      @id @default(cuid())
+  subjectId String      @map("subject_id")
+  groupId   String      @map("group_id")
+  dayOfWeek DayOfWeek   @map("day_of_week")
+  startTime DateTime    @map("start_time") @db.Time()
+  endTime   DateTime    @map("end_time") @db.Time()
+  type      SessionType
+  room      String?
+
+  subject Subject @relation(fields: [subjectId], references: [id])
+  group   Group   @relation(fields: [groupId], references: [id])
+
+  @@map("class_sessions")
+}
+
+model ExamOrDeadline {
+  id        String             @id @default(cuid())
+  subjectId String             @map("subject_id")
+  groupId   String             @map("group_id")
+  date      DateTime
+  type      ExamOrDeadlineType
+
+  subject Subject @relation(fields: [subjectId], references: [id])
+  group   Group   @relation(fields: [groupId], references: [id])
+
+  @@map("exams_or_deadlines")
+}
+
+model User {
+  id           String   @id @default(cuid())
+  anonId       String   @unique @map("anon_id")
+  email        String?  @unique
+  passwordHash String?  @map("password_hash")
+  createdAt    DateTime @default(now()) @map("created_at")
+
+  subjectSelections UserSubjectSelection[]
+  grades            UserGrade[]
+
+  @@map("users")
+}
+
+model UserSubjectSelection {
+  userId    String @map("user_id")
+  subjectId String @map("subject_id")
+  groupId   String @map("group_id")
+
+  user    User    @relation(fields: [userId], references: [id])
+  subject Subject @relation(fields: [subjectId], references: [id])
+  group   Group   @relation(fields: [groupId], references: [id])
+
+  @@id([userId, subjectId])
+  @@map("user_subject_selections")
+}
+
+model UserGrade {
+  userId    String @map("user_id")
+  subjectId String @map("subject_id")
+  component String
+  value     Float
+
+  user    User    @relation(fields: [userId], references: [id])
+  subject Subject @relation(fields: [subjectId], references: [id])
+
+  @@id([userId, subjectId, component])
+  @@map("user_grades")
+}
