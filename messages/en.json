@@ -1,0 +1,174 @@
+{
+  "Nav": {
+    "brand": "MAI Central Hub",
+    "home": "Home",
+    "schedule": "Schedule",
+    "calendar": "Calendar",
+    "goals": "Goals",
+    "about": "About",
+    "calculator": "Grade calculator",
+    "feedback": "Feedback",
+    "privacy": "Privacy",
+    "contact": "Contact"
+  },
+  "LocaleSwitcher": {
+    "label": "language"
+  },
+  "Footer": {
+    "disclaimer": "A personal project, not officially affiliated with UPC, UB or URV.",
+    "columns": {
+      "project": "Project",
+      "help": "Help",
+      "legal": "Legal"
+    }
+  },
+  "HomePage": {
+    "eyebrow": "Master in Artificial Intelligence · UPC · UB · URV",
+    "tagline": "The MAI calendar, with no cross-university surprises.",
+    "description": "I bring together the class schedules and exams from the master's three universities (UPC, UB, URV) in one place, so you can spot overlaps before they catch you off guard.",
+    "cta": "View my schedule",
+    "stats": {
+      "subjectsLabel": "mandatory subjects",
+      "universitiesLabel": "universities: UPC, UB, URV",
+      "ectsLabel": "ECTS in the 1st semester"
+    }
+  },
+  "SchedulePage": {
+    "title": "Schedule",
+    "subtitle": "1st semester — recurring weekly schedule",
+    "groupsToShow": "Groups to show",
+    "allSubjects": "All subjects",
+    "days": {
+      "monday": "Monday",
+      "tuesday": "Tuesday",
+      "wednesday": "Wednesday",
+      "thursday": "Thursday",
+      "friday": "Friday"
+    },
+    "daysShort": {
+      "monday": "Mon",
+      "tuesday": "Tue",
+      "wednesday": "Wed",
+      "thursday": "Thu",
+      "friday": "Fri"
+    },
+    "sessionType": {
+      "theory": "Theory",
+      "lab": "Lab",
+      "problems": "Problems",
+      "theoryLab": "Theory and lab"
+    }
+  },
+  "CalendarPage": {
+    "title": "Calendar",
+    "subtitle": "Real semester dates: exams, deadlines and holidays.",
+    "todayButton": "Today",
+    "previousMonth": "Previous month",
+    "nextMonth": "Next month",
+    "legendExam": "Exam",
+    "legendHoliday": "Holiday",
+    "upcomingHeading": "Upcoming exams and deadlines",
+    "noUpcoming": "No exams or deadlines recorded yet.",
+    "examType": {
+      "midterm": "Midterm",
+      "exam": "Final",
+      "deadline": "Deadline"
+    },
+    "startOfTermHeading": "2026-27 term start",
+    "startOfTermSubtitle": "Autumn semester",
+    "holidays": {
+      "nationalDay": "Spain's National Day",
+      "allSaints": "All Saints' Day",
+      "constitutionDay": "Constitution Day",
+      "immaculateConception": "Immaculate Conception",
+      "christmas": "Christmas Day",
+      "stStephensDay": "St. Stephen's Day",
+      "newYear": "New Year's Day",
+      "epiphany": "Epiphany"
+    }
+  },
+  "GradeCalculatorPage": {
+    "title": "Grade calculator",
+    "subtitle": "Enter what you've already got and your target grade, and I'll work out what's left.",
+    "componentLabel": "Component",
+    "weightLabel": "Weight %",
+    "valueLabel": "Grade",
+    "component": "Component",
+    "addComponent": "Add component",
+    "removeComponent": "Remove component",
+    "targetLabel": "Final grade you want to reach",
+    "savedHint": "Saved automatically — you can close and come back later.",
+    "resultEmpty": "Add at least one component with its weight.",
+    "resultNoTarget": "Enter the final grade you want to reach.",
+    "resultTooManyUnknowns": "Leave at most one component without a grade — the one you want to solve for.",
+    "resultZeroWeight": "The component you left blank needs a weight greater than 0.",
+    "currentAverageHeading": "Your average with this data",
+    "resultHeading": "You need in “{component}”",
+    "resultReachable": "With a {needed} in “{component}” you reach a {target} average.",
+    "resultAlreadyAchieved": "You've already secured your target, even with a 0 in “{component}”.",
+    "resultNotReachable": "Not reachable with this data: the maximum possible is a {max}."
+  },
+  "GoalsPage": {
+    "title": "Goals",
+    "intro": [
+      "This project comes from a very specific need: doing the Master in Artificial Intelligence means splitting subjects across UPC, UB and URV, each with its own calendar, its own virtual campus, and its own grading criteria. Matching all three by hand, every semester, is tedious and error-prone — and an exam clash between two universities can catch you off guard if you don't see it coming early enough.",
+      "MAI Central Hub exists to fix exactly that: a single calendar that brings together class schedules and exam dates from all three universities, built to catch overlaps before they become a problem."
+    ],
+    "scopeHeading": "For this first phase, the goal is deliberately small",
+    "scopeItems": [
+      "A weekly calendar per group, loaded by hand from the official schedules.",
+      "Independent group selection per subject, because from the second or third semester onward there's no single group anymore.",
+      "No sign-up: you just show up and use it."
+    ],
+    "notYetHeading": "What it isn't, yet",
+    "notYetBody": "There's no automatic extraction from course guides, no sync with Atenea or UB's Virtual Campus, and no workload prediction. That might come later, but only if this first version proves worth maintaining."
+  },
+  "AboutPage": {
+    "title": "About the project",
+    "paragraphs": [
+      "I build this on my own, in whatever free time the master's itself leaves me — treat it as what it is: a personal project, not a product with a support team behind it.",
+      "Under the hood it's Next.js with Prisma and Postgres, deployed on Vercel. No unnecessary third-party services or exotic databases: the simpler it is, the easier it is to maintain between classes.",
+      "The calendar data — subjects, schedules, exams — I load by hand from each university's official PDFs. No automatic scraping: if something changes and takes a while to update, tell me on the feedback page.",
+      "If you're doing the MAI and something occurs to you that this should have, chances are I've already noted it down. And if not, you know where to find me."
+    ]
+  },
+  "FeedbackPage": {
+    "title": "Feedback",
+    "intro": "Something off, a schedule that's wrong, or an idea for something this site should have? Tell me directly — there's no form or database involved, just write to me.",
+    "emailCta": "Send an email",
+    "outro": "I try to reply to everything, though the master's sometimes wins out over free time."
+  },
+  "PrivacyPage": {
+    "title": "Privacy",
+    "intro": "Here's exactly what data I keep, no runaround.",
+    "sections": [
+      {
+        "heading": "No sign-up needed",
+        "body": "To use the calendar I don't ask for an email or a password."
+      },
+      {
+        "heading": "An anonymous identifier",
+        "body": "When you save a personal choice — like your actual group for a subject, or your grades — your browser generates a random identifier and stores it in a long-lived cookie. That identifier is the only thing that lets me remember your choices; it carries no personal data, it's just a random number."
+      },
+      {
+        "heading": "The class and exam calendar is shared data",
+        "body": "Subjects, schedules and exam dates are the same for everyone in a given group — they have nothing to do with you specifically."
+      },
+      {
+        "heading": "Analytics",
+        "body": "Right now this site doesn't use any analytics service. If I add one later, it'll be Plausible or Vercel Analytics — neither uses cookies or collects personal data, so no consent banner will be needed. I don't use Google Analytics."
+      },
+      {
+        "heading": "No third parties",
+        "body": "I don't sell or hand over anything to anyone. I have no one to share it with, and even if I did, I wouldn't."
+      }
+    ],
+    "closing": "Questions? Write to me on the contact page."
+  },
+  "ContactPage": {
+    "title": "Contact",
+    "intro": "I run this project on my own, so if you write to me, you're writing straight to me.",
+    "emailLabel": "Email",
+    "outro": "For schedule suggestions, missing subjects or errors, better go through the feedback page — that way everything stays in one place."
+  }
+}

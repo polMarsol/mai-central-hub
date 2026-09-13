@@ -1,0 +1,174 @@
+{
+  "Nav": {
+    "brand": "MAI Central Hub",
+    "home": "Inici",
+    "schedule": "Horari",
+    "calendar": "Calendari",
+    "goals": "Objectius",
+    "about": "Sobre el projecte",
+    "calculator": "Calculadora de notes",
+    "feedback": "Suggeriments",
+    "privacy": "Privacitat",
+    "contact": "Contacte"
+  },
+  "LocaleSwitcher": {
+    "label": "idioma"
+  },
+  "Footer": {
+    "disclaimer": "Projecte personal, sense relació oficial amb la UPC, la UB ni la URV.",
+    "columns": {
+      "project": "Projecte",
+      "help": "Ajuda",
+      "legal": "Legal"
+    }
+  },
+  "HomePage": {
+    "eyebrow": "Màster en Intel·ligència Artificial · UPC · UB · URV",
+    "tagline": "El calendari del MAI, sense sorpreses entre universitats.",
+    "description": "Centralitzo els horaris de classe i els exàmens de les tres universitats del màster (UPC, UB, URV) en un únic lloc, per detectar solapaments abans que t'ho espatllin.",
+    "cta": "Veure el meu horari",
+    "stats": {
+      "subjectsLabel": "assignatures obligatòries",
+      "universitiesLabel": "universitats: UPC, UB, URV",
+      "ectsLabel": "ECTS del primer semestre"
+    }
+  },
+  "SchedulePage": {
+    "title": "Horari",
+    "subtitle": "1r semestre — horari setmanal recurrent",
+    "groupsToShow": "Grups a mostrar",
+    "allSubjects": "Totes les assignatures",
+    "days": {
+      "monday": "Dilluns",
+      "tuesday": "Dimarts",
+      "wednesday": "Dimecres",
+      "thursday": "Dijous",
+      "friday": "Divendres"
+    },
+    "daysShort": {
+      "monday": "Dl",
+      "tuesday": "Dt",
+      "wednesday": "Dc",
+      "thursday": "Dj",
+      "friday": "Dv"
+    },
+    "sessionType": {
+      "theory": "Teoria",
+      "lab": "Laboratori",
+      "problems": "Problemes",
+      "theoryLab": "Teoria i laboratori"
+    }
+  },
+  "CalendarPage": {
+    "title": "Calendari",
+    "subtitle": "Dates reals del semestre: exàmens, lliuraments i festius.",
+    "todayButton": "Avui",
+    "previousMonth": "Mes anterior",
+    "nextMonth": "Mes següent",
+    "legendExam": "Examen",
+    "legendHoliday": "Festiu",
+    "upcomingHeading": "Exàmens i lliuraments pendents",
+    "noUpcoming": "Encara no hi ha exàmens ni lliuraments pendents registrats.",
+    "examType": {
+      "midterm": "Parcial",
+      "exam": "Final",
+      "deadline": "Lliurament"
+    },
+    "startOfTermHeading": "Inici de curs 2026-27",
+    "startOfTermSubtitle": "Quadrimestre de tardor",
+    "holidays": {
+      "nationalDay": "Festa Nacional d'Espanya",
+      "allSaints": "Tots Sants",
+      "constitutionDay": "Dia de la Constitució",
+      "immaculateConception": "Immaculada Concepció",
+      "christmas": "Nadal",
+      "stStephensDay": "Sant Esteve",
+      "newYear": "Cap d'Any",
+      "epiphany": "Reis"
+    }
+  },
+  "GradeCalculatorPage": {
+    "title": "Calculadora de notes",
+    "subtitle": "Introdueix el que ja tens i l'objectiu final, i calculo el que et falta.",
+    "componentLabel": "Component",
+    "weightLabel": "Pes %",
+    "valueLabel": "Nota",
+    "component": "Component",
+    "addComponent": "Afegir component",
+    "removeComponent": "Eliminar component",
+    "targetLabel": "Nota final que vols aconseguir",
+    "savedHint": "Es guarda automàticament — pots tancar i tornar més tard.",
+    "resultEmpty": "Afegeix almenys un component amb el seu pes.",
+    "resultNoTarget": "Indica la nota final que vols aconseguir.",
+    "resultTooManyUnknowns": "Deixa com a molt un component sense nota — el que vulguis calcular.",
+    "resultZeroWeight": "El component que deixes en blanc necessita un pes més gran que 0.",
+    "currentAverageHeading": "La teva mitjana amb aquestes dades",
+    "resultHeading": "Necessites a «{component}»",
+    "resultReachable": "Amb un {needed} a «{component}» arribes a un {target} de mitjana.",
+    "resultAlreadyAchieved": "Ja tens l'objectiu assegurat, encara que treguis un 0 a «{component}».",
+    "resultNotReachable": "No és assolible amb aquestes dades: el màxim possible és un {max}."
+  },
+  "GoalsPage": {
+    "title": "Objectius",
+    "intro": [
+      "Aquest projecte neix d'una necessitat molt concreta: cursar el Màster en Intel·ligència Artificial vol dir repartir assignatures entre la UPC, la UB i la URV, cadascuna amb el seu calendari, el seu campus virtual i els seus criteris d'avaluació. Quadrar els tres a mà, cada semestre, és tediós i dona peu a errors — i un examen que se solapa entre dues universitats et pot enxampar per sorpresa si no ho veus venir amb temps.",
+      "MAI Central Hub existeix per resoldre justament això: un calendari únic que ajunta els horaris de classe i les dates d'examen de les tres universitats, pensat per detectar solapaments abans que es converteixin en un problema."
+    ],
+    "scopeHeading": "En aquesta primera fase, l'objectiu és deliberadament petit",
+    "scopeItems": [
+      "Un calendari setmanal per grup, carregat a mà des dels horaris oficials.",
+      "Selecció independent de grup per assignatura, perquè a partir de segon o tercer semestre ja no hi ha un grup únic.",
+      "Sense registre: entres i ja està."
+    ],
+    "notYetHeading": "El que encara no és",
+    "notYetBody": "No hi ha extracció automàtica de les guies docents, no hi ha sincronització amb Atenea ni amb el Campus Virtual de la UB, i no hi ha predicció de càrrega de treball. Pot arribar més endavant, però només si aquesta primera versió demostra que val la pena mantenir-la."
+  },
+  "AboutPage": {
+    "title": "Sobre el projecte",
+    "paragraphs": [
+      "Ho faig jo sol, en el temps lliure que em deixa el mateix màster — tracta'l com el que és: un projecte personal, no un producte amb equip de suport al darrere.",
+      "Per dins és Next.js amb Prisma i Postgres, desplegat a Vercel. Res de serveis externs innecessaris ni bases de dades exòtiques: com més senzill, més fàcil de mantenir entre classe i classe.",
+      "Les dades del calendari —assignatures, horaris, exàmens— les carrego a mà des dels PDF oficials de cada universitat. No hi ha scraping automàtic: si alguna cosa canvia i triga a actualitzar-se, digues-m'ho a la pàgina de suggeriments.",
+      "Si curses el MAI i se t'acut alguna cosa que hauria de tenir, és bastant probable que ja la tingui apuntada. I si no, ja saps on trobar-me."
+    ]
+  },
+  "FeedbackPage": {
+    "title": "Suggeriments",
+    "intro": "Alguna cosa no quadra, un horari és incorrecte, o se t'acut alguna cosa que hauria de tenir aquesta web? Digues-m'ho directament — no hi ha formulari ni base de dades pel mig, només escriu-me.",
+    "emailCta": "Escriure un correu",
+    "outro": "Intento respondre a tot, encara que el màster de vegades guanyi la partida al temps lliure."
+  },
+  "PrivacyPage": {
+    "title": "Privacitat",
+    "intro": "T'explico exactament quines dades guardo, sense embuts.",
+    "sections": [
+      {
+        "heading": "No cal que et registris",
+        "body": "Per fer servir el calendari no et demano ni email ni contrasenya."
+      },
+      {
+        "heading": "Un identificador anònim",
+        "body": "Quan guardes una elecció personal —com el teu grup real en una assignatura o les teves notes—, el teu navegador genera un identificador aleatori i el guarda en una cookie de llarga durada. Aquest identificador és l'únic que em permet recordar les teves eleccions; no porta cap dada personal, és només un número a l'atzar."
+      },
+      {
+        "heading": "El calendari de classes i exàmens és una dada compartida",
+        "body": "Les assignatures, els horaris i les dates d'examen són iguals per a tothom d'un mateix grup — no tenen res a veure amb tu en particular."
+      },
+      {
+        "heading": "Analítica",
+        "body": "Ara mateix aquesta web no fa servir cap servei d'analítica. Si en el futur n'afegeixo un, serà Plausible o Vercel Analytics — cap dels dos fa servir cookies ni recull dades personals, així que no caldrà cap banner de consentiment. No faig servir Google Analytics."
+      },
+      {
+        "heading": "Res de tercers",
+        "body": "No venc ni cedeixo res a ningú. No tinc amb qui compartir-ho, i encara que ho tingués, no ho faria."
+      }
+    ],
+    "closing": "Dubtes? Escriu-me a la pàgina de contacte."
+  },
+  "ContactPage": {
+    "title": "Contacte",
+    "intro": "Aquest projecte el porto jo sol, així que si m'escrius, m'escrius a mi directament.",
+    "emailLabel": "Correu",
+    "outro": "Per a suggeriments d'horaris, assignatures que faltin o errors, millor passa per la pàgina de suggeriments — així queda tot al mateix lloc."
+  }
+}

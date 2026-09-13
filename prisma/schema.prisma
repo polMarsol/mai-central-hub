@@ -38,6 +38,7 @@ enum SessionType {
 }
 
 enum ExamOrDeadlineType {
+  MIDTERM
   EXAM
   DEADLINE
 }

@@ -1,4 +1,10 @@
-import { PrismaClient, University, DayOfWeek, SessionType } from "../app/generated/prisma/client";
+import {
+  PrismaClient,
+  University,
+  DayOfWeek,
+  SessionType,
+  ExamOrDeadlineType,
+} from "../app/generated/prisma/client";
 
 const prisma = new PrismaClient();
 
@@ -55,7 +61,9 @@ const SUBJECTS = [
   },
 ];
 
-// Horari_MAI.pdf — Horari MAIA, 1r semestre. Grups 10, 11 i 12.
+// Corregido a partir de una captura del horario real (sustituye la
+// lectura original de Horari_MAI.pdf para IML/CV/IHLT/CI — PAR e IMAS
+// no cambian). Grups 10, 11 i 12.
 const CLASS_SESSIONS: {
   subjectCode: string;
   groupId: string;
@@ -65,19 +73,19 @@ const CLASS_SESSIONS: {
   type: SessionType;
 }[] = [
   // IML — dimarts (UB)
-  { subjectCode: "IML", groupId: "group-10", dayOfWeek: DayOfWeek.TUESDAY, startTime: "10:00", endTime: "11:00", type: SessionType.THEORY },
-  { subjectCode: "IML", groupId: "group-11", dayOfWeek: DayOfWeek.TUESDAY, startTime: "11:00", endTime: "12:00", type: SessionType.PROBLEMS },
-  { subjectCode: "IML", groupId: "group-12", dayOfWeek: DayOfWeek.TUESDAY, startTime: "12:00", endTime: "13:00", type: SessionType.PROBLEMS },
+  { subjectCode: "IML", groupId: "group-10", dayOfWeek: DayOfWeek.TUESDAY, startTime: "10:00", endTime: "12:00", type: SessionType.THEORY },
+  { subjectCode: "IML", groupId: "group-11", dayOfWeek: DayOfWeek.TUESDAY, startTime: "12:00", endTime: "13:00", type: SessionType.PROBLEMS },
+  { subjectCode: "IML", groupId: "group-12", dayOfWeek: DayOfWeek.TUESDAY, startTime: "13:00", endTime: "14:00", type: SessionType.PROBLEMS },
 
   // CV — dimarts (UB)
-  { subjectCode: "CV", groupId: "group-10", dayOfWeek: DayOfWeek.TUESDAY, startTime: "14:00", endTime: "15:00", type: SessionType.THEORY },
-  { subjectCode: "CV", groupId: "group-11", dayOfWeek: DayOfWeek.TUESDAY, startTime: "15:00", endTime: "16:00", type: SessionType.PROBLEMS },
-  { subjectCode: "CV", groupId: "group-12", dayOfWeek: DayOfWeek.TUESDAY, startTime: "16:00", endTime: "17:00", type: SessionType.PROBLEMS },
+  { subjectCode: "CV", groupId: "group-10", dayOfWeek: DayOfWeek.TUESDAY, startTime: "14:00", endTime: "16:00", type: SessionType.THEORY },
+  { subjectCode: "CV", groupId: "group-11", dayOfWeek: DayOfWeek.TUESDAY, startTime: "16:00", endTime: "17:00", type: SessionType.PROBLEMS },
+  { subjectCode: "CV", groupId: "group-12", dayOfWeek: DayOfWeek.TUESDAY, startTime: "17:00", endTime: "18:00", type: SessionType.PROBLEMS },
 
   // IHLT — dijous (UPC)
-  { subjectCode: "IHLT", groupId: "group-10", dayOfWeek: DayOfWeek.THURSDAY, startTime: "10:00", endTime: "11:00", type: SessionType.THEORY },
-  { subjectCode: "IHLT", groupId: "group-11", dayOfWeek: DayOfWeek.THURSDAY, startTime: "11:00", endTime: "12:00", type: SessionType.LAB },
-  { subjectCode: "IHLT", groupId: "group-12", dayOfWeek: DayOfWeek.THURSDAY, startTime: "12:00", endTime: "13:00", type: SessionType.LAB },
+  { subjectCode: "IHLT", groupId: "group-10", dayOfWeek: DayOfWeek.THURSDAY, startTime: "10:00", endTime: "12:00", type: SessionType.THEORY },
+  { subjectCode: "IHLT", groupId: "group-11", dayOfWeek: DayOfWeek.THURSDAY, startTime: "12:00", endTime: "13:00", type: SessionType.LAB },
+  { subjectCode: "IHLT", groupId: "group-12", dayOfWeek: DayOfWeek.THURSDAY, startTime: "13:00", endTime: "14:00", type: SessionType.LAB },
 
   // PAR — dimecres (URV)
   { subjectCode: "PAR", groupId: "group-10", dayOfWeek: DayOfWeek.WEDNESDAY, startTime: "11:00", endTime: "13:00", type: SessionType.THEORY },
@@ -90,15 +98,30 @@ const CLASS_SESSIONS: {
   { subjectCode: "IMAS", groupId: "group-12", dayOfWeek: DayOfWeek.WEDNESDAY, startTime: "16:00", endTime: "17:00", type: SessionType.LAB },
 
   // CI — dijous (UPC), sessio conjunta 10+11+12
-  { subjectCode: "CI", groupId: "group-10", dayOfWeek: DayOfWeek.THURSDAY, startTime: "16:00", endTime: "18:00", type: SessionType.THEORY_LAB },
-  { subjectCode: "CI", groupId: "group-11", dayOfWeek: DayOfWeek.THURSDAY, startTime: "16:00", endTime: "18:00", type: SessionType.THEORY_LAB },
-  { subjectCode: "CI", groupId: "group-12", dayOfWeek: DayOfWeek.THURSDAY, startTime: "16:00", endTime: "18:00", type: SessionType.THEORY_LAB },
+  { subjectCode: "CI", groupId: "group-10", dayOfWeek: DayOfWeek.THURSDAY, startTime: "15:00", endTime: "18:00", type: SessionType.THEORY_LAB },
+  { subjectCode: "CI", groupId: "group-11", dayOfWeek: DayOfWeek.THURSDAY, startTime: "15:00", endTime: "18:00", type: SessionType.THEORY_LAB },
+  { subjectCode: "CI", groupId: "group-12", dayOfWeek: DayOfWeek.THURSDAY, startTime: "15:00", endTime: "18:00", type: SessionType.THEORY_LAB },
 ];
 
 function toTimeDate(hhmm: string): Date {
   const [hours, minutes] = hhmm.split(":").map(Number);
   return new Date(Date.UTC(1970, 0, 1, hours, minutes));
 }
+
+// Fechas reales confirmadas — curs 2026-27, 1r semestre (veure
+// CALENDARIO-ACADEMICO.md). Solo se cargan las que están confirmadas
+// oficialmente; IMAS y PAR aún no tienen fecha de examen anunciada.
+const EXAMS: {
+  subjectCode: string;
+  date: string; // ISO, hora local del examen en UTC
+  type: ExamOrDeadlineType;
+}[] = [
+  { subjectCode: "CV", date: "2026-11-03T14:00:00Z", type: ExamOrDeadlineType.MIDTERM },
+  { subjectCode: "IML", date: "2026-12-15T10:00:00Z", type: ExamOrDeadlineType.EXAM },
+  { subjectCode: "CV", date: "2026-12-15T14:00:00Z", type: ExamOrDeadlineType.EXAM },
+  { subjectCode: "CI", date: "2027-01-07T15:00:00Z", type: ExamOrDeadlineType.EXAM },
+  { subjectCode: "IHLT", date: "2027-01-14T11:30:00Z", type: ExamOrDeadlineType.EXAM },
+];
 
 async function main() {
   for (const group of GROUPS) {
@@ -144,6 +167,28 @@ async function main() {
         type: session.type,
       },
     });
+  }
+
+  await prisma.examOrDeadline.deleteMany({
+    where: { subjectId: { in: [...subjectIdByCode.values()] } },
+  });
+
+  for (const exam of EXAMS) {
+    const subjectId = subjectIdByCode.get(exam.subjectCode);
+    if (!subjectId) {
+      throw new Error(`Subject not seeded: ${exam.subjectCode}`);
+    }
+
+    for (const group of GROUPS) {
+      await prisma.examOrDeadline.create({
+        data: {
+          subjectId,
+          groupId: group.id,
+          date: new Date(exam.date),
+          type: exam.type,
+        },
+      });
+    }
   }
 }
 

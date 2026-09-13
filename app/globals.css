@@ -10,17 +10,127 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-cmu-serif);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* DESIGN.md define una única paleta clara fija — sin variante oscura. */
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: -apple-system, "SF Pro Text", "Helvetica Neue", system-ui, sans-serif;
+}
+
+/*
+ * Los estilos inline (`style={{...}}`) que usa el resto de la app no
+ * soportan `:hover`, así que estas clases cubren ese caso puntual.
+ * Los valores deben coincidir con COLORS en lib/design.ts.
+ */
+
+/* El cristal esmerilado del topbar (backdrop-filter) se aplica por
+   `style` inline en layout.tsx, no aquí: el minificador de CSS del
+   build (Lightning CSS) elimina la propiedad `backdrop-filter` sin
+   prefijo y se queda solo con `-webkit-backdrop-filter`, que el
+   Chrome actual ya no reconoce — el resultado es que el desenfoque
+   simplemente no se aplicaba. Los estilos inline no pasan por ese
+   minificador.
+
+   Enlaces con subrayado que aparece al hover (nav, footer) — el hover
+   se dispara al pasar por el elemento .nav-item completo (el objetivo
+   táctil de 44px), no solo por el texto de dentro. */
+.nav-item {
+  transition: opacity 150ms ease;
+}
+.underline-link {
+  position: relative;
+  display: inline-block;
+}
+.underline-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -3px;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 300ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.nav-item:hover .underline-link::after {
+  transform: scaleX(1);
+}
+
+.brand-link {
+  transition: opacity 150ms ease;
+}
+.brand-link:hover {
+  opacity: 0.7;
+}
+
+.locale-switch-button {
+  color: #6e6e73;
+  transition: background-color 150ms ease, color 150ms ease;
+}
+.locale-switch-button:hover:not([data-active="true"]) {
+  color: #1d1d1f;
+  background-color: #fafafa;
+}
+
+/* Botón primario (CTA del hero, etc.) */
+.cta-button {
+  transition: opacity 200ms ease, transform 200ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.cta-button:hover {
+  opacity: 0.86;
+  transform: translateY(-1px);
+}
+
+/* Bloques de sesión del calendario: el fondo base y el de hover se
+   fijan como custom properties (ver calendar-view.tsx) porque el
+   color depende de la universidad; así ninguno de los dos es un
+   `style` inline, y `:hover` puede aplicar sin pelearse con la
+   especificidad de los estilos en línea. */
+.session-block {
+  background-color: var(--session-bg);
+  transition: background-color 200ms ease;
+}
+.session-block:hover {
+  background-color: var(--session-bg-hover);
+}
+
+/* Reveal orquestado del hero de la home — se dispara una sola vez al
+   entrar en el viewport (ver HeroReveal). Ningún otro bloque de la
+   app anima al hacer scroll (DESIGN.md → Motion). */
+.hero-reveal > * {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 650ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 650ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.hero-reveal.is-visible > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+.hero-reveal.is-visible > *:nth-child(1) {
+  transition-delay: 0ms;
+}
+.hero-reveal.is-visible > *:nth-child(2) {
+  transition-delay: 90ms;
+}
+.hero-reveal.is-visible > *:nth-child(3) {
+  transition-delay: 180ms;
+}
+.hero-reveal.is-visible > *:nth-child(4) {
+  transition-delay: 270ms;
+}
+.hero-reveal.is-visible > *:nth-child(5) {
+  transition-delay: 360ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-reveal > * {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }

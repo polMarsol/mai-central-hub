@@ -1,0 +1,174 @@
+{
+  "Nav": {
+    "brand": "MAI Central Hub",
+    "home": "Inicio",
+    "schedule": "Horario",
+    "calendar": "Calendario",
+    "goals": "Objetivos",
+    "about": "Sobre el proyecto",
+    "calculator": "Calculadora de notas",
+    "feedback": "Sugerencias",
+    "privacy": "Privacidad",
+    "contact": "Contacto"
+  },
+  "LocaleSwitcher": {
+    "label": "idioma"
+  },
+  "Footer": {
+    "disclaimer": "Proyecto personal, sin relación oficial con la UPC, la UB ni la URV.",
+    "columns": {
+      "project": "Proyecto",
+      "help": "Ayuda",
+      "legal": "Legal"
+    }
+  },
+  "HomePage": {
+    "eyebrow": "Máster en Inteligencia Artificial · UPC · UB · URV",
+    "tagline": "El calendario del MAI, sin sorpresas entre universidades.",
+    "description": "Centralizo los horarios de clase y los exámenes de las tres universidades del máster (UPC, UB, URV) en un único sitio, para detectar solapamientos antes de que te la líen.",
+    "cta": "Ver mi horario",
+    "stats": {
+      "subjectsLabel": "asignaturas obligatorias",
+      "universitiesLabel": "universidades: UPC, UB, URV",
+      "ectsLabel": "ECTS del primer semestre"
+    }
+  },
+  "SchedulePage": {
+    "title": "Horario",
+    "subtitle": "1r semestre — horario semanal recurrente",
+    "groupsToShow": "Grupos a mostrar",
+    "allSubjects": "Todas las asignaturas",
+    "days": {
+      "monday": "Lunes",
+      "tuesday": "Martes",
+      "wednesday": "Miércoles",
+      "thursday": "Jueves",
+      "friday": "Viernes"
+    },
+    "daysShort": {
+      "monday": "Lun",
+      "tuesday": "Mar",
+      "wednesday": "Mié",
+      "thursday": "Jue",
+      "friday": "Vie"
+    },
+    "sessionType": {
+      "theory": "Teoría",
+      "lab": "Laboratorio",
+      "problems": "Problemas",
+      "theoryLab": "Teoría y laboratorio"
+    }
+  },
+  "CalendarPage": {
+    "title": "Calendario",
+    "subtitle": "Fechas reales del semestre: exámenes, entregas y festivos.",
+    "todayButton": "Hoy",
+    "previousMonth": "Mes anterior",
+    "nextMonth": "Mes siguiente",
+    "legendExam": "Examen",
+    "legendHoliday": "Festivo",
+    "upcomingHeading": "Exámenes y entregas pendientes",
+    "noUpcoming": "No hay exámenes ni entregas pendientes registrados todavía.",
+    "examType": {
+      "midterm": "Parcial",
+      "exam": "Final",
+      "deadline": "Entrega"
+    },
+    "startOfTermHeading": "Inicio de curso 2026-27",
+    "startOfTermSubtitle": "Cuatrimestre de otoño",
+    "holidays": {
+      "nationalDay": "Fiesta Nacional de España",
+      "allSaints": "Todos los Santos",
+      "constitutionDay": "Día de la Constitución",
+      "immaculateConception": "Inmaculada Concepción",
+      "christmas": "Navidad",
+      "stStephensDay": "San Esteban",
+      "newYear": "Año Nuevo",
+      "epiphany": "Reyes"
+    }
+  },
+  "GradeCalculatorPage": {
+    "title": "Calculadora de notas",
+    "subtitle": "Introduce lo que ya tienes y el objetivo final, y calculo lo que te falta.",
+    "componentLabel": "Componente",
+    "weightLabel": "Peso %",
+    "valueLabel": "Nota",
+    "component": "Componente",
+    "addComponent": "Añadir componente",
+    "removeComponent": "Eliminar componente",
+    "targetLabel": "Nota final que quieres conseguir",
+    "savedHint": "Se guarda automáticamente — puedes cerrar y volver más tarde.",
+    "resultEmpty": "Añade al menos un componente con su peso.",
+    "resultNoTarget": "Indica la nota final que quieres conseguir.",
+    "resultTooManyUnknowns": "Deja como mucho un componente sin nota — el que quieras calcular.",
+    "resultZeroWeight": "El componente que dejas en blanco necesita un peso mayor que 0.",
+    "currentAverageHeading": "Tu media con estos datos",
+    "resultHeading": "Necesitas en «{component}»",
+    "resultReachable": "Con un {needed} en «{component}» llegas a un {target} de media.",
+    "resultAlreadyAchieved": "Ya tienes el objetivo asegurado, incluso con un 0 en «{component}».",
+    "resultNotReachable": "No es alcanzable con estos datos: el máximo posible es un {max}."
+  },
+  "GoalsPage": {
+    "title": "Objetivos",
+    "intro": [
+      "Este proyecto nace de una necesidad muy concreta: cursar el Máster en Inteligencia Artificial significa repartir asignaturas entre la UPC, la UB y la URV, cada una con su calendario, su campus virtual y sus criterios de evaluación. Cuadrar los tres a mano, cada semestre, es tedioso y da pie a errores — y un examen que se solapa entre dos universidades puede pillarte por sorpresa si no lo ves venir con tiempo.",
+      "MAI Central Hub existe para resolver justo eso: un calendario único que junta los horarios de clase y las fechas de examen de las tres universidades, pensado para detectar solapamientos antes de que se conviertan en un problema."
+    ],
+    "scopeHeading": "En esta primera fase, el objetivo es deliberadamente pequeño",
+    "scopeItems": [
+      "Un calendario semanal por grupo, cargado a mano desde los horarios oficiales.",
+      "Selección independiente de grupo por asignatura, porque a partir de segundo o tercer semestre ya no existe un grupo único.",
+      "Sin registro: entras y ya está."
+    ],
+    "notYetHeading": "Lo que no es, todavía",
+    "notYetBody": "No hay extracción automática de las guías docentes, no hay sincronización con Atenea ni con el Campus Virtual de la UB, y no hay predicción de carga de trabajo. Puede llegar más adelante, pero solo si esta primera versión demuestra que merece la pena mantenerla."
+  },
+  "AboutPage": {
+    "title": "Sobre el proyecto",
+    "paragraphs": [
+      "Lo hago yo solo, en el tiempo libre que me deja el propio máster — trátalo como lo que es: un proyecto personal, no un producto con equipo de soporte detrás.",
+      "Por dentro es Next.js con Prisma y Postgres, desplegado en Vercel. Nada de servicios externos innecesarios ni bases de datos exóticas: cuanto más simple, más fácil de mantener entre clase y clase.",
+      "Los datos del calendario —asignaturas, horarios, exámenes— los cargo a mano desde los PDFs oficiales de cada universidad. No hay scraping automático: si algo cambia y tarda en actualizarse, dímelo en la página de sugerencias.",
+      "Si curses el MAI y se te ocurre algo que debería tener, es bastante probable que ya lo tenga anotado. Y si no, ya sabes dónde encontrarme."
+    ]
+  },
+  "FeedbackPage": {
+    "title": "Sugerencias",
+    "intro": "¿Algo no cuadra, un horario está mal, o se te ocurre algo que debería tener esta web? Dímelo directamente — no hay formulario ni base de datos de por medio, solo escríbeme.",
+    "emailCta": "Escribir un correo",
+    "outro": "Intento responder a todo, aunque el máster a veces le gane la partida al tiempo libre."
+  },
+  "PrivacyPage": {
+    "title": "Privacidad",
+    "intro": "Te explico exactamente qué datos guardo, sin rodeos.",
+    "sections": [
+      {
+        "heading": "No hace falta que te registres",
+        "body": "Para usar el calendario no te pido ni email ni contraseña."
+      },
+      {
+        "heading": "Un identificador anónimo",
+        "body": "Cuando guardas una elección personal —como tu grupo real en una asignatura o tus notas—, tu navegador genera un identificador aleatorio y lo guarda en una cookie de larga duración. Ese identificador es lo único que me permite recordar tus elecciones; no lleva ningún dato personal, es solo un número al azar."
+      },
+      {
+        "heading": "El calendario de clases y exámenes es un dato compartido",
+        "body": "Las asignaturas, los horarios y las fechas de examen son iguales para todo el mundo de un mismo grupo — no tienen nada que ver contigo en particular."
+      },
+      {
+        "heading": "Analítica",
+        "body": "Ahora mismo esta web no usa ningún servicio de analítica. Si en el futuro añado uno, será Plausible o Vercel Analytics — ninguno de los dos usa cookies ni recoge datos personales, así que no hará falta ningún banner de consentimiento. No uso Google Analytics."
+      },
+      {
+        "heading": "Nada de terceros",
+        "body": "No vendo ni cedo nada a nadie. No tengo con quién compartirlo, y aunque lo tuviera, no lo haría."
+      }
+    ],
+    "closing": "¿Dudas? Escríbeme en la página de contacto."
+  },
+  "ContactPage": {
+    "title": "Contacto",
+    "intro": "Este proyecto lo llevo yo solo, así que si me escribes, me escribes a mí directamente.",
+    "emailLabel": "Correo",
+    "outro": "Para sugerencias de horarios, asignaturas que falten o errores, mejor pasa por la página de sugerencias — así queda todo en el mismo sitio."
+  }
+}

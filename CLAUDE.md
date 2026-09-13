@@ -76,3 +76,10 @@ las únicas tablas verdaderamente per-user.
 Ver `CHECKLIST.md` para las tareas pendientes por fase. Actualizar ese
 archivo (marcar checkboxes) al final de cada sesión de trabajo, no dejar
 que quede desincronizado con el código real.
+
+Lee DESIGN.md. Rediseña la página /calendario y el selector de
+asignaturas siguiendo exactamente ese sistema de diseño (color solo
+como codificación de universidad, tipografía de una sola familia por
+peso, layout con hairlines en vez de tarjetas con sombra, radio de
+esquina solo en elementos interactivos). No añadas gradientes,
+mayúsculas en etiquetas, ni componentes tipo tarjeta-SaaS genéricos.
