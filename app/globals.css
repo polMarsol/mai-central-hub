@@ -68,18 +68,20 @@ body {
 }
 
 /* Selector de idioma: el cambio de valor es instantáneo (sin
-   transición), pero al pasar el ratón por encima el texto gira sobre
-   sí mismo en bucle, como único indicador de hover del control. */
-@keyframes locale-spin {
-  from {
-    transform: rotateY(0deg);
+   transición), pero al pasar el ratón por encima el texto se mueve
+   verticalmente en bucle (sin girar), como único indicador de hover
+   del control. */
+@keyframes locale-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
   }
-  to {
-    transform: rotateY(360deg);
+  50% {
+    transform: translateY(-4px);
   }
 }
 .locale-switch-text:hover {
-  animation: locale-spin 700ms linear infinite;
+  animation: locale-bounce 700ms ease-in-out infinite;
 }
 
 /* Botón con borde genérico (banner de cookies, paginación del

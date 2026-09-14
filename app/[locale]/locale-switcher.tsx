@@ -8,9 +8,9 @@ import { COLORS } from "@/lib/design";
 
 // Solo se ve el idioma activo, como texto plano, sin caja ni borde.
 // El cambio de idioma en sí es instantáneo (clic o rueda del ratón),
-// pero al pasar el ratón por encima el texto gira sobre sí mismo
-// (rotateY en bucle) como indicador de hover, sin relación con el
-// cambio de valor.
+// pero al pasar el ratón por encima el texto se mueve verticalmente
+// (arriba/abajo, sin girar) como indicador de hover, sin relación con
+// el cambio de valor.
 const WHEEL_THRESHOLD = 35; // acumulado de deltaY antes de avanzar un paso
 
 export function LocaleSwitcher() {
@@ -49,7 +49,7 @@ export function LocaleSwitcher() {
       onWheel={handleWheel}
       aria-label={t("label")}
       className="locale-switch-text text-xs font-medium"
-      style={{ color: COLORS.textPrimary, display: "inline-block", perspective: "60px" }}
+      style={{ color: COLORS.textPrimary, display: "inline-block" }}
     >
       {locale.toUpperCase()}
     </button>

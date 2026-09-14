@@ -110,13 +110,19 @@ export default async function LocaleLayout({
             }}
           >
             <div className={`${SHELL_WIDTH} flex h-14 items-center justify-between gap-6`}>
-              <Link
-                href="/"
-                className="brand-link flex items-baseline gap-1.5"
-                style={{ fontFamily: "var(--font-cmu-serif)", fontSize: "21px", letterSpacing: "-0.01em" }}
-              >
-                <span style={{ color: COLORS.textPrimary }}>MAI</span>
-                <span style={{ color: COLORS.textSecondary }}>Central Hub</span>
+              <Link href="/" className="brand-link flex items-center gap-2">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/mai-logo.svg" alt="MAI" style={{ height: "20px", width: "auto" }} />
+                <span
+                  style={{
+                    fontFamily: "var(--font-cmu-serif)",
+                    fontSize: "21px",
+                    letterSpacing: "-0.01em",
+                    color: COLORS.textSecondary,
+                  }}
+                >
+                  Central Hub
+                </span>
               </Link>
 
               <nav className="hidden flex-1 items-center justify-center gap-7 sm:flex">

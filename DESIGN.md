@@ -90,15 +90,17 @@ ni para "decorar" una palabra suelta.
 - Una sola fila, `height: 56px`: logotipo a la izquierda, navegación
   centrada (`flex: 1; justify-content: center`), selector de idioma a
   la derecha.
-- Logotipo en dos tonos: `MAI` en `text-primary` + `Central Hub` en
+- Logotipo: marca `MAI` en SVG (`public/mai-logo.svg`, monograma
+  geométrico, altura 20px en el topbar) + `Central Hub` en texto,
   `text-secondary`, tipografía display, `font-size: 21px`.
 - Selector de idioma (ES/CA/EN): solo texto plano con el código del
   idioma activo, sin caja ni borde. El cambio de idioma en sí es
   instantáneo y sin transición, al pulsarlo (pasa al siguiente idioma)
   o al girar la rueda del ratón sobre él (en cualquier dirección). Al
-  pasar el ratón por encima, el texto gira sobre sí mismo en bucle
-  (`rotateY`, 700ms) como único indicador de hover del control,
-  independiente del cambio de valor. Idioma por defecto: inglés.
+  pasar el ratón por encima, el texto se mueve verticalmente en bucle
+  (`translateY`, sin girar, 700ms) como único indicador de hover del
+  control, independiente del cambio de valor. Idioma por defecto:
+  inglés.
 
 ## Footer
 
@@ -147,11 +149,10 @@ de entrada repetidas sección a sección:
    estadísticas aparecen con un fade + `translateY` breve y un
    pequeño *stagger* entre ellos. Ningún otro bloque de la app anima
    al hacer scroll.
-3. **Giro en bucle (`rotateY`) en el selector de idioma**, solo
-   mientras el ratón está encima: es el único hover de la app que no
-   sigue el patrón de la regla 1, y el único sitio con una
-   transformación 3D. El cambio de idioma en sí sigue siendo
-   instantáneo, sin transición.
+3. **Movimiento vertical en bucle (`translateY`, sin girar) en el
+   selector de idioma**, solo mientras el ratón está encima: es el
+   único hover de la app que no sigue el patrón de la regla 1. El
+   cambio de idioma en sí sigue siendo instantáneo, sin transición.
 
 Fuera de esos casos, sin animaciones de entrada por scroll.
 
