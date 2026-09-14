@@ -52,7 +52,7 @@ export function LocaleSwitcher() {
       aria-label={t("label")}
       onWheel={handleWheel}
       className="locale-wheel flex select-none flex-col items-stretch overflow-hidden rounded-md"
-      style={{ border: `1px solid ${COLORS.hairline}`, width: "2.75rem", perspective: "240px" }}
+      style={{ width: "2.75rem", perspective: "240px" }}
     >
       <button
         type="button"
@@ -67,8 +67,8 @@ export function LocaleSwitcher() {
         type="button"
         onClick={() => goToIndex(currentIndex + 1)}
         aria-label={t("next")}
-        className="flex shrink-0 items-center justify-center text-xs font-medium"
-        style={{ height: `${ROW_HEIGHT}px`, color: COLORS.background, backgroundColor: COLORS.textPrimary }}
+        className="locale-wheel-current flex shrink-0 items-center justify-center text-xs font-medium"
+        style={{ height: `${ROW_HEIGHT}px` }}
       >
         {locale.toUpperCase()}
       </button>
