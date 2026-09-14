@@ -110,3 +110,12 @@
 - Anuncios: Google AdSense, con banner de consentimiento previo
   (aceptar/rechazar con el mismo peso visual). Solo se activa cuando
   exista un ID de publicador real en `NEXT_PUBLIC_ADSENSE_CLIENT_ID`.
+- `prisma migrate deploy` NO va en el build de Vercel: el motor de
+  migraciones de Prisma (binario Rust) se queda colgado indefinidamente
+  contra el pooler de Supabase, aunque la app en sí (con
+  `@prisma/adapter-pg`, driver `pg` normal) conecta sin problema. Las
+  migraciones nuevas hay que aplicarlas a mano (un script Node con
+  `pg` contra `DIRECT_URL`, insertando también la fila correspondiente
+  en `_prisma_migrations` para que quede registrada) antes de hacer
+  push. `prisma db seed` sí va en el build (usa el mismo driver que la
+  app, no el motor de migraciones, y es idempotente).
