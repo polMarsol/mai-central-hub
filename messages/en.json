@@ -12,10 +12,19 @@
     "contact": "Contact"
   },
   "LocaleSwitcher": {
-    "label": "language"
+    "label": "language",
+    "next": "Next language"
+  },
+  "CookieConsent": {
+    "label": "Cookie consent",
+    "message": "I use cookies to be able to show ads and keep this project free to run. None of them are used for anything else.",
+    "learnMore": "Learn more",
+    "accept": "Accept",
+    "reject": "Reject"
   },
   "Footer": {
     "disclaimer": "A personal project, not officially affiliated with UPC, UB or URV.",
+    "cookiePreferences": "Cookie preferences",
     "columns": {
       "project": "Project",
       "help": "Help",
@@ -57,7 +66,10 @@
       "lab": "Lab",
       "problems": "Problems",
       "theoryLab": "Theory and lab"
-    }
+    },
+    "locationsHeading": "Locations",
+    "viewOnMaps": "View on Google Maps",
+    "viewSyllabus": "View syllabus"
   },
   "CalendarPage": {
     "title": "Calendar",
@@ -65,6 +77,8 @@
     "todayButton": "Today",
     "previousMonth": "Previous month",
     "nextMonth": "Next month",
+    "legendClassStart": "First class",
+    "institutionStart": "{code} term start",
     "legendExam": "Exam",
     "legendHoliday": "Holiday",
     "upcomingHeading": "Upcoming exams and deadlines",
@@ -74,17 +88,22 @@
       "exam": "Final",
       "deadline": "Deadline"
     },
-    "startOfTermHeading": "2026-27 term start",
-    "startOfTermSubtitle": "Autumn semester",
+    "classStartNotes": {
+      "iml": "Official correction from the professor (9/7/2026): the first class is NOT 9/15 as originally announced, but 9/22 at 10:00, at UB (Gran Via de les Corts Catalanes 585, room B1).",
+      "ihlt": "Group 10 (Theory): while the A5 building renovation lasts, classes are held in C5 016 instead of the usual room.",
+      "imas": "Labs on alternate weeks.",
+      "par": "Labs on alternate weeks."
+    },
     "holidays": {
+      "catalanNationalDay": "Catalan National Day",
       "nationalDay": "Spain's National Day",
-      "allSaints": "All Saints' Day",
-      "constitutionDay": "Constitution Day",
+      "bridgeDay": "Bridge day (no classes)",
       "immaculateConception": "Immaculate Conception",
-      "christmas": "Christmas Day",
-      "stStephensDay": "St. Stephen's Day",
-      "newYear": "New Year's Day",
-      "epiphany": "Epiphany"
+      "christmasBreak": "Christmas break",
+      "welcomeEventExchange": "Welcome event (exchange students)",
+      "welcomeCeremony": "Welcome Ceremony: 12:15pm, Sala d'Actes, Vèrtex building",
+      "scheduleChange": "Schedule change: follows Monday's schedule",
+      "examPrep": "Exam preparation (no new material)"
     }
   },
   "GradeCalculatorPage": {
@@ -112,23 +131,25 @@
     "title": "Goals",
     "intro": [
       "This project comes from a very specific need: doing the Master in Artificial Intelligence means splitting subjects across UPC, UB and URV, each with its own calendar, its own virtual campus, and its own grading criteria. Matching all three by hand, every semester, is tedious and error-prone — and an exam clash between two universities can catch you off guard if you don't see it coming early enough.",
-      "MAI Central Hub exists to fix exactly that: a single calendar that brings together class schedules and exam dates from all three universities, built to catch overlaps before they become a problem."
+      "MAI Central Hub exists to fix exactly that: one place with the weekly schedule, the real calendar (holidays, first day of class and term start, exams and deadlines), and a grade calculator — so you can see at a glance everything you used to have to piece together by hand from three different calendars."
     ],
     "scopeHeading": "For this first phase, the goal is deliberately small",
     "scopeItems": [
-      "A weekly calendar per group, loaded by hand from the official schedules.",
+      "A weekly schedule and a real calendar per group, loaded by hand from each university's official schedules and notices.",
       "Independent group selection per subject, because from the second or third semester onward there's no single group anymore.",
+      "A grade calculator that remembers what you already saved, without asking for anything else.",
+      "A direct link to each subject's official syllabus.",
       "No sign-up: you just show up and use it."
     ],
     "notYetHeading": "What it isn't, yet",
-    "notYetBody": "There's no automatic extraction from course guides, no sync with Atenea or UB's Virtual Campus, and no workload prediction. That might come later, but only if this first version proves worth maintaining."
+    "notYetBody": "I don't automatically detect overlaps between exams from different universities — the calendar puts them all in one place, but checking for clashes is still on you. There's also no automatic extraction (parsing) of syllabus content, no sync with Atenea or UB's Virtual Campus, and no workload prediction. That might come later, but only if this first version proves worth maintaining."
   },
   "AboutPage": {
     "title": "About the project",
     "paragraphs": [
       "I build this on my own, in whatever free time the master's itself leaves me — treat it as what it is: a personal project, not a product with a support team behind it.",
       "Under the hood it's Next.js with Prisma and Postgres, deployed on Vercel. No unnecessary third-party services or exotic databases: the simpler it is, the easier it is to maintain between classes.",
-      "The calendar data — subjects, schedules, exams — I load by hand from each university's official PDFs. No automatic scraping: if something changes and takes a while to update, tell me on the feedback page.",
+      "The calendar data — subjects, schedules, holidays, exams — I load by hand from each university's official PDFs and notices (including last-minute correction emails, like a date or room change). No automatic scraping: if something changes and takes a while to update, tell me on the feedback page.",
       "If you're doing the MAI and something occurs to you that this should have, chances are I've already noted it down. And if not, you know where to find me."
     ]
   },
@@ -144,23 +165,31 @@
     "sections": [
       {
         "heading": "No sign-up needed",
-        "body": "To use the calendar I don't ask for an email or a password."
+        "body": "To use the calendar, the schedule, or the grade calculator, I don't ask for an email or a password."
       },
       {
-        "heading": "An anonymous identifier",
-        "body": "When you save a personal choice — like your actual group for a subject, or your grades — your browser generates a random identifier and stores it in a long-lived cookie. That identifier is the only thing that lets me remember your choices; it carries no personal data, it's just a random number."
+        "heading": "An anonymous identifier, only for the grade calculator",
+        "body": "When you save a component in the grade calculator, your browser generates a random identifier and stores it in a long-lived cookie. That identifier is the only thing that lets me remember what you saved; it carries no personal data, it's just a random number. The group filter (10/11/12) on the schedule page is NOT saved anywhere — it's only a local view in your browser that resets on reload."
       },
       {
         "heading": "The class and exam calendar is shared data",
         "body": "Subjects, schedules and exam dates are the same for everyone in a given group — they have nothing to do with you specifically."
       },
       {
-        "heading": "Analytics",
-        "body": "Right now this site doesn't use any analytics service. If I add one later, it'll be Plausible or Vercel Analytics — neither uses cookies or collects personal data, so no consent banner will be needed. I don't use Google Analytics."
+        "heading": "Advertising cookies",
+        "body": "To keep this project free to run, I use Google AdSense to show ads. Before any ad or advertising cookie is activated, I ask for consent with a banner: you can accept or reject, with equal weight given to both options. If you reject, no advertising script or cookie is loaded. You can change your decision anytime from \"Cookie preferences\" in the footer."
       },
       {
-        "heading": "No third parties",
-        "body": "I don't sell or hand over anything to anyone. I have no one to share it with, and even if I did, I wouldn't."
+        "heading": "Analytics",
+        "body": "Right now this site doesn't use any analytics service. If I add one later, it'll be Plausible or Vercel Analytics — neither uses cookies or collects personal data, so this is unrelated to the advertising cookie banner. I don't use Google Analytics."
+      },
+      {
+        "heading": "Third parties",
+        "body": "The only third party I share anything with is Google, through AdSense, and only if you accept advertising cookies — Google then acts as an independent controller for that data, under its own policies (policies.google.com/technologies/partner-sites). I don't sell or hand over anything to anyone else."
+      },
+      {
+        "heading": "Your rights",
+        "body": "You can ask me to access, correct, or delete any data I hold about you (identifiable only by your anonymous identifier), or object to its processing — write to me on the contact page. If you're not satisfied with the response, you can file a complaint with the Spanish Data Protection Agency (aepd.es)."
       }
     ],
     "closing": "Questions? Write to me on the contact page."

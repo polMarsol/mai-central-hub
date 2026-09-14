@@ -7,6 +7,9 @@ import { Link } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 import { COLORS, SYSTEM_FONT_STACK } from "@/lib/design";
 import { cmuSerif } from "../fonts";
+import { AdSenseLoader } from "./adsense-loader";
+import { CookieConsentBanner } from "./cookie-consent-banner";
+import { CookiePreferencesButton } from "./cookie-preferences-button";
 import { LocaleSwitcher } from "./locale-switcher";
 import "../globals.css";
 
@@ -153,24 +156,25 @@ export default async function LocaleLayout({
           </div>
 
           <footer style={{ borderTop: `1px solid ${COLORS.hairline}`, backgroundColor: COLORS.backgroundSecondary }}>
-            <div className={`${SHELL_WIDTH} flex flex-col gap-10 py-14`}>
+            <div className={`${SHELL_WIDTH} flex flex-col gap-8 py-10`}>
               <div className="grid grid-cols-2 gap-8 sm:grid-cols-3">
                 {FOOTER_COLUMNS.map((column) => (
-                  <div key={column.titleKey} className="flex flex-col gap-4">
+                  <div key={column.titleKey} className="flex flex-col gap-3">
                     <p
                       className="uppercase"
                       style={{ fontSize: "12.5px", letterSpacing: "0.06em", color: COLORS.textSecondary }}
                     >
                       {footerT(column.titleKey)}
                     </p>
-                    <div className="flex flex-col items-start gap-2.5">
+                    <div className="flex flex-col items-start gap-1.5">
                       {column.links.map((link) => (
-                        <Link key={link.href} href={link.href} className="nav-item flex min-h-11 items-center">
+                        <Link key={link.href} href={link.href} className="nav-item flex min-h-9 items-center">
                           <span className="underline-link text-sm" style={{ color: COLORS.textPrimary }}>
                             {t(link.key)}
                           </span>
                         </Link>
                       ))}
+                      {column.titleKey === "columns.legal" && <CookiePreferencesButton />}
                     </div>
                   </div>
                 ))}
@@ -178,7 +182,7 @@ export default async function LocaleLayout({
 
               <div
                 className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between"
-                style={{ borderTop: `1px solid ${COLORS.hairline}`, paddingTop: "1.5rem" }}
+                style={{ borderTop: `1px solid ${COLORS.hairline}`, paddingTop: "1.25rem" }}
               >
                 <span className="font-display text-base" style={{ color: COLORS.textPrimary }}>
                   {t("brand")}
@@ -189,6 +193,9 @@ export default async function LocaleLayout({
               </div>
             </div>
           </footer>
+
+          <CookieConsentBanner />
+          <AdSenseLoader />
         </NextIntlClientProvider>
       </body>
     </html>

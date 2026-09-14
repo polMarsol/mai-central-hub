@@ -12,10 +12,19 @@
     "contact": "Contacto"
   },
   "LocaleSwitcher": {
-    "label": "idioma"
+    "label": "idioma",
+    "next": "Siguiente idioma"
+  },
+  "CookieConsent": {
+    "label": "Consentimiento de cookies",
+    "message": "Uso cookies para poder mostrar anuncios y mantener el proyecto sin coste. Ninguna se usa para nada más.",
+    "learnMore": "Más info",
+    "accept": "Aceptar",
+    "reject": "Rechazar"
   },
   "Footer": {
     "disclaimer": "Proyecto personal, sin relación oficial con la UPC, la UB ni la URV.",
+    "cookiePreferences": "Preferencias de cookies",
     "columns": {
       "project": "Proyecto",
       "help": "Ayuda",
@@ -57,7 +66,10 @@
       "lab": "Laboratorio",
       "problems": "Problemas",
       "theoryLab": "Teoría y laboratorio"
-    }
+    },
+    "locationsHeading": "Ubicaciones",
+    "viewOnMaps": "Ver en Google Maps",
+    "viewSyllabus": "Ver guía docente"
   },
   "CalendarPage": {
     "title": "Calendario",
@@ -65,6 +77,8 @@
     "todayButton": "Hoy",
     "previousMonth": "Mes anterior",
     "nextMonth": "Mes siguiente",
+    "legendClassStart": "Inicio de clase",
+    "institutionStart": "Inicio de curso {code}",
     "legendExam": "Examen",
     "legendHoliday": "Festivo",
     "upcomingHeading": "Exámenes y entregas pendientes",
@@ -74,17 +88,22 @@
       "exam": "Final",
       "deadline": "Entrega"
     },
-    "startOfTermHeading": "Inicio de curso 2026-27",
-    "startOfTermSubtitle": "Cuatrimestre de otoño",
+    "classStartNotes": {
+      "iml": "Corrección oficial de la profesora (7/9/2026): la primera clase NO es el 15/09 como se anunció al principio, sino el 22/09 a las 10:00, en la UB (Gran Via de les Corts Catalanes 585, aula B1).",
+      "ihlt": "Grupo 10 (Teoría): mientras duren las obras del aulari A5, las clases se hacen en C5 016 en vez de su aula habitual.",
+      "imas": "Laboratorios en semanas alternas.",
+      "par": "Laboratorios en semanas alternas."
+    },
     "holidays": {
+      "catalanNationalDay": "Diada Nacional de Catalunya",
       "nationalDay": "Fiesta Nacional de España",
-      "allSaints": "Todos los Santos",
-      "constitutionDay": "Día de la Constitución",
+      "bridgeDay": "Puente (día no lectivo)",
       "immaculateConception": "Inmaculada Concepción",
-      "christmas": "Navidad",
-      "stStephensDay": "San Esteban",
-      "newYear": "Año Nuevo",
-      "epiphany": "Reyes"
+      "christmasBreak": "Vacaciones de Navidad",
+      "welcomeEventExchange": "Welcome event (alumnos de intercambio)",
+      "welcomeCeremony": "Welcome Ceremony: 12:15, Sala d'Actes, edifici Vèrtex",
+      "scheduleChange": "Cambio de horario: sigue horario de lunes",
+      "examPrep": "Preparación de exámenes (sin clase nueva)"
     }
   },
   "GradeCalculatorPage": {
@@ -112,23 +131,25 @@
     "title": "Objetivos",
     "intro": [
       "Este proyecto nace de una necesidad muy concreta: cursar el Máster en Inteligencia Artificial significa repartir asignaturas entre la UPC, la UB y la URV, cada una con su calendario, su campus virtual y sus criterios de evaluación. Cuadrar los tres a mano, cada semestre, es tedioso y da pie a errores — y un examen que se solapa entre dos universidades puede pillarte por sorpresa si no lo ves venir con tiempo.",
-      "MAI Central Hub existe para resolver justo eso: un calendario único que junta los horarios de clase y las fechas de examen de las tres universidades, pensado para detectar solapamientos antes de que se conviertan en un problema."
+      "MAI Central Hub existe para resolver justo eso: un único sitio con el horario semanal, el calendario real (festivos, primer día de clase e inicio de curso, exámenes y entregas) y una calculadora de notas, para que veas de un vistazo todo lo que antes tenías que cuadrar a mano entre tres calendarios distintos."
     ],
     "scopeHeading": "En esta primera fase, el objetivo es deliberadamente pequeño",
     "scopeItems": [
-      "Un calendario semanal por grupo, cargado a mano desde los horarios oficiales.",
+      "Un horario semanal y un calendario real por grupo, cargados a mano desde los horarios y avisos oficiales de cada universidad.",
       "Selección independiente de grupo por asignatura, porque a partir de segundo o tercer semestre ya no existe un grupo único.",
+      "Una calculadora de notas que recuerda lo que ya guardaste, sin pedirte nada más.",
+      "Enlace directo a la guía docente oficial de cada asignatura.",
       "Sin registro: entras y ya está."
     ],
     "notYetHeading": "Lo que no es, todavía",
-    "notYetBody": "No hay extracción automática de las guías docentes, no hay sincronización con Atenea ni con el Campus Virtual de la UB, y no hay predicción de carga de trabajo. Puede llegar más adelante, pero solo si esta primera versión demuestra que merece la pena mantenerla."
+    "notYetBody": "No detecto automáticamente solapamientos entre exámenes de distintas universidades — el calendario los pone a todos en el mismo sitio, pero revisarlos sigue siendo cosa tuya. Tampoco hay extracción automática (parsing) del contenido de las guías docentes, ni sincronización con Atenea o con el Campus Virtual de la UB, ni predicción de carga de trabajo. Puede llegar más adelante, pero solo si esta primera versión demuestra que merece la pena mantenerla."
   },
   "AboutPage": {
     "title": "Sobre el proyecto",
     "paragraphs": [
       "Lo hago yo solo, en el tiempo libre que me deja el propio máster — trátalo como lo que es: un proyecto personal, no un producto con equipo de soporte detrás.",
       "Por dentro es Next.js con Prisma y Postgres, desplegado en Vercel. Nada de servicios externos innecesarios ni bases de datos exóticas: cuanto más simple, más fácil de mantener entre clase y clase.",
-      "Los datos del calendario —asignaturas, horarios, exámenes— los cargo a mano desde los PDFs oficiales de cada universidad. No hay scraping automático: si algo cambia y tarda en actualizarse, dímelo en la página de sugerencias.",
+      "Los datos del calendario —asignaturas, horarios, festivos, exámenes— los cargo a mano desde los PDFs y avisos oficiales de cada universidad (incluidos emails de correcciones de última hora, como cambios de fecha o de aula). No hay scraping automático: si algo cambia y tarda en actualizarse, dímelo en la página de sugerencias.",
       "Si curses el MAI y se te ocurre algo que debería tener, es bastante probable que ya lo tenga anotado. Y si no, ya sabes dónde encontrarme."
     ]
   },
@@ -144,23 +165,31 @@
     "sections": [
       {
         "heading": "No hace falta que te registres",
-        "body": "Para usar el calendario no te pido ni email ni contraseña."
+        "body": "Para usar el calendario, el horario o la calculadora no te pido ni email ni contraseña."
       },
       {
-        "heading": "Un identificador anónimo",
-        "body": "Cuando guardas una elección personal —como tu grupo real en una asignatura o tus notas—, tu navegador genera un identificador aleatorio y lo guarda en una cookie de larga duración. Ese identificador es lo único que me permite recordar tus elecciones; no lleva ningún dato personal, es solo un número al azar."
+        "heading": "Un identificador anónimo, solo para la calculadora de notas",
+        "body": "Cuando guardas un componente en la calculadora de notas, tu navegador genera un identificador aleatorio y lo guarda en una cookie de larga duración. Ese identificador es lo único que me permite recordar lo que guardaste; no lleva ningún dato personal, es solo un número al azar. El filtro de grupo (10/11/12) del horario NO se guarda en ningún sitio — es solo una vista local de tu navegador que se olvida al recargar."
       },
       {
         "heading": "El calendario de clases y exámenes es un dato compartido",
         "body": "Las asignaturas, los horarios y las fechas de examen son iguales para todo el mundo de un mismo grupo — no tienen nada que ver contigo en particular."
       },
       {
-        "heading": "Analítica",
-        "body": "Ahora mismo esta web no usa ningún servicio de analítica. Si en el futuro añado uno, será Plausible o Vercel Analytics — ninguno de los dos usa cookies ni recoge datos personales, así que no hará falta ningún banner de consentimiento. No uso Google Analytics."
+        "heading": "Cookies de publicidad",
+        "body": "Para poder mantener el proyecto sin coste, uso Google AdSense para mostrar anuncios. Antes de que se active ningún anuncio o cookie publicitaria, te pido consentimiento con un banner: puedes aceptar o rechazar, con el mismo peso para las dos opciones. Si rechazas, no se carga ningún script ni cookie de publicidad. Puedes cambiar tu decisión cuando quieras desde \"Preferencias de cookies\", en el pie de página."
       },
       {
-        "heading": "Nada de terceros",
-        "body": "No vendo ni cedo nada a nadie. No tengo con quién compartirlo, y aunque lo tuviera, no lo haría."
+        "heading": "Analítica",
+        "body": "Ahora mismo esta web no usa ningún servicio de analítica. Si en el futuro añado uno, será Plausible o Vercel Analytics — ninguno de los dos usa cookies ni recoge datos personales, así que esto no depende del banner de cookies de publicidad. No uso Google Analytics."
+      },
+      {
+        "heading": "Terceros",
+        "body": "El único tercero con el que comparto algo es Google, a través de AdSense, y solo si aceptas las cookies de publicidad — Google actúa entonces como responsable independiente de esos datos, según sus propias políticas (policies.google.com/technologies/partner-sites). No vendo ni cedo nada a nadie más."
+      },
+      {
+        "heading": "Tus derechos",
+        "body": "Puedes pedirme acceder, corregir o borrar cualquier dato que tenga sobre ti (identificable solo por tu identificador anónimo), u oponerte a su tratamiento — escríbeme a la página de contacto. Si no quedas satisfecho con la respuesta, puedes reclamar ante la Agencia Española de Protección de Datos (aepd.es)."
       }
     ],
     "closing": "¿Dudas? Escríbeme en la página de contacto."

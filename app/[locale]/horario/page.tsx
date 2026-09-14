@@ -1,9 +1,17 @@
 import { getTranslations } from "next-intl/server";
 import { COLORS } from "@/lib/design";
 import { prisma } from "@/lib/prisma";
-import { ScheduleView, type SessionSlot, type SubjectOption } from "./schedule-view";
+import { ScheduleView, type Location, type SessionSlot, type SubjectOption } from "./schedule-view";
 
 const SEMESTER = 1;
+
+// Direcciones reales — ver CALENDARIO-ACADEMICO.md. Las fechas de
+// inicio de curso viven en /calendario, no aquí.
+const LOCATIONS: Location[] = [
+  { code: "UPC", address: "C/ Jordi Girona 1-3, Campus Nord, 08034 Barcelona" },
+  { code: "UB", address: "C/ Gran Via de les Corts Catalanes 585, Pati de Ciències, 08011 Barcelona" },
+  { code: "URV", address: "Av. Països Catalans 26, Edifici E4, Campus Sescelades, 43007 Tarragona" },
+];
 
 // Las horas de seed siempre caen en punto (ver prisma/seed.ts), por eso
 // basta con la hora entera: no hace falta granularidad de media hora.
@@ -60,7 +68,7 @@ export default async function HorarioPage() {
         </p>
       </div>
 
-      <ScheduleView subjects={subjectOptions} sessions={sessions} />
+      <ScheduleView subjects={subjectOptions} sessions={sessions} locations={LOCATIONS} />
     </div>
   );
 }

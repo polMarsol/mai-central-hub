@@ -1,9 +1,17 @@
 "use client";
 
 import { useLocale, useTranslations } from "next-intl";
+import { useCallback, useRef } from "react";
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 import { COLORS } from "@/lib/design";
+
+// Rueda vertical: la fila del centro es el idioma activo, arriba/abajo se
+// ven los adyacentes (orden circular). Se gira con la rueda del ratón
+// (onWheel) o pulsando directamente una fila — pensado como control de
+// ratón, no como un <select> nativo ni un menú desplegable.
+const ROW_HEIGHT = 16; // px
+const WHEEL_THRESHOLD = 35; // acumulado de deltaY antes de avanzar un paso
 
 export function LocaleSwitcher() {
   const locale = useLocale();
@@ -11,33 +19,67 @@ export function LocaleSwitcher() {
   const router = useRouter();
   const t = useTranslations("LocaleSwitcher");
 
+  const locales = routing.locales;
+  const currentIndex = locales.indexOf(locale as (typeof locales)[number]);
+  const wheelAccum = useRef(0);
+
+  const goToIndex = useCallback(
+    (index: number) => {
+      const nextLocale = locales[((index % locales.length) + locales.length) % locales.length];
+      if (nextLocale !== locale) {
+        router.replace(pathname, { locale: nextLocale });
+      }
+    },
+    [locale, locales, pathname, router],
+  );
+
+  function handleWheel(event: React.WheelEvent<HTMLDivElement>) {
+    event.preventDefault();
+    wheelAccum.current += event.deltaY;
+    if (Math.abs(wheelAccum.current) < WHEEL_THRESHOLD) return;
+    const step = wheelAccum.current > 0 ? 1 : -1;
+    wheelAccum.current = 0;
+    goToIndex(currentIndex + step);
+  }
+
+  const above = locales[(currentIndex - 1 + locales.length) % locales.length];
+  const below = locales[(currentIndex + 1) % locales.length];
+
   return (
     <div
-      className="flex overflow-hidden rounded-md"
-      style={{ border: `1px solid ${COLORS.hairline}` }}
       role="group"
       aria-label={t("label")}
+      onWheel={handleWheel}
+      className="flex select-none flex-col items-stretch overflow-hidden rounded-md"
+      style={{ border: `1px solid ${COLORS.hairline}`, width: "2.75rem" }}
     >
-      {routing.locales.map((code) => {
-        const isActive = code === locale;
-        return (
-          <button
-            key={code}
-            type="button"
-            aria-pressed={isActive}
-            data-active={isActive}
-            onClick={() => router.replace(pathname, { locale: code })}
-            className="locale-switch-button flex min-h-11 min-w-11 items-center justify-center px-2.5 text-xs font-medium"
-            style={
-              isActive
-                ? { letterSpacing: "0.02em", backgroundColor: COLORS.textPrimary, color: COLORS.background }
-                : { letterSpacing: "0.02em" }
-            }
-          >
-            {code.toUpperCase()}
-          </button>
-        );
-      })}
+      <button
+        type="button"
+        onClick={() => goToIndex(currentIndex - 1)}
+        aria-label={above.toUpperCase()}
+        className="locale-wheel-row flex items-center justify-center text-[10px] font-medium"
+        style={{ height: `${ROW_HEIGHT}px`, color: COLORS.textSecondary }}
+      >
+        {above.toUpperCase()}
+      </button>
+      <button
+        type="button"
+        onClick={() => goToIndex(currentIndex + 1)}
+        aria-label={t("next")}
+        className="flex items-center justify-center text-xs font-medium"
+        style={{ height: `${ROW_HEIGHT}px`, color: COLORS.background, backgroundColor: COLORS.textPrimary }}
+      >
+        {locale.toUpperCase()}
+      </button>
+      <button
+        type="button"
+        onClick={() => goToIndex(currentIndex + 1)}
+        aria-label={below.toUpperCase()}
+        className="locale-wheel-row flex items-center justify-center text-[10px] font-medium"
+        style={{ height: `${ROW_HEIGHT}px`, color: COLORS.textSecondary }}
+      >
+        {below.toUpperCase()}
+      </button>
     </div>
   );
 }

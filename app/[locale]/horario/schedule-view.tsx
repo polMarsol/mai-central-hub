@@ -1,9 +1,17 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { useMemo, useState } from "react";
 import type { DayOfWeek, SessionType, University } from "@/app/generated/prisma/client";
-import { COLORS, UNIVERSITY_COLORS, withAlpha } from "@/lib/design";
+import { COLORS, mapsUrl, UNIVERSITY_COLORS, withAlpha } from "@/lib/design";
+
+// Guía docente conjunta del máster, alojada por la FIB/UPC incluso para
+// asignaturas de UB/URV — el prefijo de idioma en la ruta (es/ca/en)
+// coincide con los locales de la app. Verificado a mano para las 6
+// asignaturas del 1r semestre.
+function syllabusUrl(code: string, locale: string): string {
+  return `https://www.fib.upc.edu/${locale}/masters/master-artificial-intelligence/curriculum/syllabus/${code}-MAI`;
+}
 
 const GROUPS = ["10", "11", "12"];
 
@@ -29,6 +37,11 @@ export type SubjectOption = {
   code: string;
   name: string;
   university: University;
+};
+
+export type Location = {
+  code: University;
+  address: string;
 };
 
 export type SessionSlot = {
@@ -279,11 +292,14 @@ function WeekGrid({
 export function ScheduleView({
   subjects,
   sessions,
+  locations,
 }: {
   subjects: SubjectOption[];
   sessions: SessionSlot[];
+  locations: Location[];
 }) {
   const t = useTranslations("SchedulePage");
+  const locale = useLocale();
 
   const days = useMemo(
     () =>
@@ -404,21 +420,27 @@ export function ScheduleView({
               className="flex flex-wrap items-center justify-between gap-3 py-3"
               style={{ borderBottom: `1px solid ${COLORS.hairline}` }}
             >
-              <div className="flex items-center gap-3">
+              <a
+                href={syllabusUrl(subject.code, locale)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="nav-item flex items-center gap-3"
+                title={t("viewSyllabus")}
+              >
                 <span
                   aria-hidden
                   className="h-2 w-2 shrink-0 rounded-full"
                   style={{ backgroundColor: UNIVERSITY_COLORS[subject.university] }}
                 />
                 <div className="flex flex-col">
-                  <span className="text-sm font-medium" style={{ color: COLORS.textPrimary }}>
+                  <span className="underline-link text-sm font-medium" style={{ color: COLORS.textPrimary }}>
                     {subject.code}
                   </span>
                   <span className="text-sm font-normal" style={{ color: COLORS.textSecondary }}>
                     {subject.name}
                   </span>
                 </div>
-              </div>
+              </a>
 
               <div className="flex gap-2">
                 {GROUPS.map((group) => {
@@ -482,6 +504,38 @@ export function ScheduleView({
       <div className="hidden sm:block">
         <WeekGrid days={days} sessionsByDay={sessionsByDay} typeLabels={typeLabels} />
       </div>
+
+      <section className="flex flex-col gap-3" style={{ borderTop: `1px solid ${COLORS.hairline}`, paddingTop: "1.5rem" }}>
+        <h2 className="font-display text-lg font-medium" style={{ color: COLORS.textPrimary }}>
+          {t("locationsHeading")}
+        </h2>
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
+          {locations.map((location) => (
+            <div key={location.code} className="flex flex-col gap-1">
+              <span
+                className="flex items-center gap-2 text-sm font-medium"
+                style={{ color: COLORS.textPrimary }}
+              >
+                <span
+                  aria-hidden
+                  className="h-2 w-2 shrink-0 rounded-full"
+                  style={{ backgroundColor: UNIVERSITY_COLORS[location.code] }}
+                />
+                {location.code}
+              </span>
+              <a
+                href={mapsUrl(location.address)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="nav-item text-sm"
+                style={{ color: COLORS.textSecondary }}
+              >
+                <span className="underline-link">{location.address}</span>
+              </a>
+            </div>
+          ))}
+        </div>
+      </section>
     </div>
   );
 }

@@ -92,9 +92,14 @@ ni para "decorar" una palabra suelta.
   la derecha.
 - Logotipo en dos tonos: `MAI` en `text-primary` + `Central Hub` en
   `text-secondary`, tipografía display, `font-size: 21px`.
-- Selector de idioma (ES/CA/EN): control segmentado — contenedor con
-  borde+radio, botones internos sin borde propio, activo con fondo
-  `text-primary` y texto blanco.
+- Selector de idioma (ES/CA/EN): rueda vertical de ratón, no un
+  `<select>` nativo ni un menú desplegable. Contenedor con borde+radio
+  de 3 filas fijas: la del centro es el idioma activo (fondo
+  `text-primary`, texto blanco), arriba y abajo se ven los dos
+  adyacentes en orden circular (`text-secondary`, atenuados). Se gira
+  con la rueda del ratón sobre el control (un "tick" = un paso) o
+  pulsando directamente la fila de arriba/abajo para saltar a ese
+  idioma. Idioma por defecto: inglés.
 
 ## Footer
 

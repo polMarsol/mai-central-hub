@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500" width="1200" height="500">
+  <title>MAI — minimal vector logo</title>
+  <desc>Geometric MAI logo with a charcoal M and I and a blue accent inside the A.</desc>
+
+  <!-- Transparent background: ideal for web, presentations and print -->
+
+  <!-- M: geometric monogram -->
+  <path fill="#171717" d="
+    M 90,390
+    L 90,110
+    L 185,110
+    L 300,235
+    L 415,110
+    L 510,110
+    L 510,390
+    L 410,390
+    L 410,250
+    L 300,355
+    L 190,250
+    L 190,390
+    Z"/>
+
+  <!-- A: its left side is intentionally joined to the M -->
+  <path fill="#171717" d="
+    M 500,390
+    L 620,110
+    L 710,110
+    L 835,390
+    L 725,390
+    L 665,245
+    L 605,390
+    Z"/>
+
+  <!-- Blue inner accent -->
+  <path fill="#1976D2" d="
+    M 665,245
+    L 705,340
+    L 625,340
+    Z"/>
+
+  <!-- I -->
+  <rect x="925" y="110" width="95" height="280" fill="#171717"/>
+</svg>

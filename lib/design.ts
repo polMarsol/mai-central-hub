@@ -23,6 +23,10 @@ export const SYSTEM_FONT_STACK =
 // autoaloja — el navegador cae en 'CMU Serif', que sí servimos.
 export const DISPLAY_FONT_STACK = "'Latin Modern Roman', 'CMU Serif', Georgia, serif";
 
+export function mapsUrl(address: string): string {
+  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
+}
+
 export function withAlpha(hex: string, alpha: number) {
   const value = parseInt(hex.replace("#", ""), 16);
   const r = (value >> 16) & 255;

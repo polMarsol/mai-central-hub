@@ -67,12 +67,23 @@ body {
   opacity: 0.7;
 }
 
-.locale-switch-button {
-  color: #6e6e73;
-  transition: background-color 150ms ease, color 150ms ease;
+/* Filas adyacentes (no activas) de la rueda de idioma — la fila
+   central activa se pinta siempre por `style` inline (color fijo,
+   no depende de hover), así que no necesita clase propia. */
+.locale-wheel-row {
+  opacity: 0.45;
+  transition: opacity 150ms ease;
 }
-.locale-switch-button:hover:not([data-active="true"]) {
-  color: #1d1d1f;
+.locale-wheel-row:hover {
+  opacity: 0.85;
+}
+
+/* Botón con borde genérico (banner de cookies, paginación del
+   calendario, etc.) — fondo por defecto transparente, sutil en hover. */
+.hairline-button {
+  transition: background-color 150ms ease;
+}
+.hairline-button:hover {
   background-color: #fafafa;
 }
 
