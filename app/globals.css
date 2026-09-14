@@ -67,6 +67,21 @@ body {
   opacity: 0.7;
 }
 
+/* Selector de idioma: el cambio de valor es instantáneo (sin
+   transición), pero al pasar el ratón por encima el texto gira sobre
+   sí mismo en bucle, como único indicador de hover del control. */
+@keyframes locale-spin {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+.locale-switch-text:hover {
+  animation: locale-spin 700ms linear infinite;
+}
+
 /* Botón con borde genérico (banner de cookies, paginación del
    calendario, etc.), fondo por defecto transparente, sutil en hover. */
 .hairline-button {
