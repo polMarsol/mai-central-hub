@@ -11,7 +11,7 @@ const nextConfig: NextConfig = {
   // serverless. Sin esto, Vercel no encuentra
   // libquery_engine-rhel-openssl-3.0.x.so.node en producción.
   outputFileTracingIncludes: {
-    "/**/*": ["./app/generated/prisma/**/*"],
+    "/*": ["./app/generated/prisma/**/*"],
   },
 };
 
