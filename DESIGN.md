@@ -92,15 +92,10 @@ ni para "decorar" una palabra suelta.
   la derecha.
 - Logotipo en dos tonos: `MAI` en `text-primary` + `Central Hub` en
   `text-secondary`, tipografía display, `font-size: 21px`.
-- Selector de idioma (ES/CA/EN): en reposo solo se ve el idioma
-  activo, en una sola fila compacta con borde+radio. Al pasar el ratón
-  por encima, el control se expande y las dos opciones adyacentes
-  aparecen con un pequeño giro (`rotateX`, `transform-origin` en el
-  borde correspondiente) más un fundido de opacidad, como si la rueda
-  se desplegara. Se elige girando la rueda del ratón sobre el control
-  (un "tick" = un paso) o pulsando directamente la fila que aparece.
-  Idioma activo con fondo `text-primary` y texto blanco; los
-  adyacentes en `text-secondary`, atenuados. Idioma por defecto:
+- Selector de idioma (ES/CA/EN): solo texto plano con el código del
+  idioma activo, sin caja, sin borde y sin animación. Cambia al
+  instante al pulsarlo (pasa al siguiente idioma) o al girar la rueda
+  del ratón sobre él (en cualquier dirección). Idioma por defecto:
   inglés.
 
 ## Footer
@@ -138,7 +133,7 @@ Usos permitidos, nada de hover genérico en cada tarjeta ni animaciones
 de entrada repetidas sección a sección:
 
 1. **Hover sutil en todo elemento interactivo** (enlaces de
-   navegación, footer, selector de idioma, botones): un cambio leve,
+   navegación, footer, botones): un cambio leve,
    como un subrayado que aparece con `transform: scaleX()` desde
    `transform-origin: left`, opacidad, o un micro-desplazamiento
    (`translateY(-1px)`). Transición 180-300ms,
@@ -150,9 +145,10 @@ de entrada repetidas sección a sección:
    estadísticas aparecen con un fade + `translateY` breve y un
    pequeño *stagger* entre ellos. Ningún otro bloque de la app anima
    al hacer scroll.
-3. **Reveal por giro (rotateX) en el selector de idioma**, al pasar
-   el ratón por encima: ver Topbar. Es el único sitio de la app donde
-   se usa una transformación 3D.
+
+El selector de idioma es la excepción deliberada a la regla 1: cambia
+al instante, sin transición ni hover, porque así se pidió
+explícitamente.
 
 Fuera de esos casos, sin animaciones de entrada por scroll.
 

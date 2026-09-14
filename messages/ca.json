@@ -12,8 +12,7 @@
     "contact": "Contacte"
   },
   "LocaleSwitcher": {
-    "label": "idioma",
-    "next": "Idioma següent"
+    "label": "idioma"
   },
   "CookieConsent": {
     "label": "Consentiment de cookies",
