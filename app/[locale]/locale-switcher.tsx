@@ -6,10 +6,11 @@ import { usePathname, useRouter } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 import { COLORS } from "@/lib/design";
 
-// Rueda vertical: la fila del centro es el idioma activo, arriba/abajo se
-// ven los adyacentes (orden circular). Se gira con la rueda del ratón
-// (onWheel) o pulsando directamente una fila: pensado como control de
-// ratón, no como un <select> nativo ni un menú desplegable.
+// En reposo solo se ve el idioma activo (una fila). Al pasar el ratón
+// por encima, el control se expande y las dos filas adyacentes
+// aparecen girando (rotateX) desde detrás de la fila central, como si
+// la rueda se desplegara. Se elige pulsando la fila que aparece, o
+// girando la rueda del ratón sobre el control en cualquier momento.
 const ROW_HEIGHT = 16; // px
 const WHEEL_THRESHOLD = 35; // acumulado de deltaY antes de avanzar un paso
 
@@ -50,14 +51,14 @@ export function LocaleSwitcher() {
       role="group"
       aria-label={t("label")}
       onWheel={handleWheel}
-      className="flex select-none flex-col items-stretch overflow-hidden rounded-md"
-      style={{ border: `1px solid ${COLORS.hairline}`, width: "2.75rem" }}
+      className="locale-wheel flex select-none flex-col items-stretch overflow-hidden rounded-md"
+      style={{ border: `1px solid ${COLORS.hairline}`, width: "2.75rem", perspective: "240px" }}
     >
       <button
         type="button"
         onClick={() => goToIndex(currentIndex - 1)}
         aria-label={above.toUpperCase()}
-        className="locale-wheel-row flex items-center justify-center text-[10px] font-medium"
+        className="locale-wheel-row locale-wheel-row--above flex shrink-0 items-center justify-center text-[10px] font-medium"
         style={{ height: `${ROW_HEIGHT}px`, color: COLORS.textSecondary }}
       >
         {above.toUpperCase()}
@@ -66,7 +67,7 @@ export function LocaleSwitcher() {
         type="button"
         onClick={() => goToIndex(currentIndex + 1)}
         aria-label={t("next")}
-        className="flex items-center justify-center text-xs font-medium"
+        className="flex shrink-0 items-center justify-center text-xs font-medium"
         style={{ height: `${ROW_HEIGHT}px`, color: COLORS.background, backgroundColor: COLORS.textPrimary }}
       >
         {locale.toUpperCase()}
@@ -75,7 +76,7 @@ export function LocaleSwitcher() {
         type="button"
         onClick={() => goToIndex(currentIndex + 1)}
         aria-label={below.toUpperCase()}
-        className="locale-wheel-row flex items-center justify-center text-[10px] font-medium"
+        className="locale-wheel-row locale-wheel-row--below flex shrink-0 items-center justify-center text-[10px] font-medium"
         style={{ height: `${ROW_HEIGHT}px`, color: COLORS.textSecondary }}
       >
         {below.toUpperCase()}

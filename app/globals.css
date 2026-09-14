@@ -13,7 +13,7 @@
   --font-display: var(--font-cmu-serif);
 }
 
-/* DESIGN.md define una única paleta clara fija — sin variante oscura. */
+/* DESIGN.md define una única paleta clara fija, sin variante oscura. */
 body {
   background: var(--background);
   color: var(--foreground);
@@ -30,11 +30,11 @@ body {
    `style` inline en layout.tsx, no aquí: el minificador de CSS del
    build (Lightning CSS) elimina la propiedad `backdrop-filter` sin
    prefijo y se queda solo con `-webkit-backdrop-filter`, que el
-   Chrome actual ya no reconoce — el resultado es que el desenfoque
+   Chrome actual ya no reconoce: el resultado es que el desenfoque
    simplemente no se aplicaba. Los estilos inline no pasan por ese
    minificador.
 
-   Enlaces con subrayado que aparece al hover (nav, footer) — el hover
+   Enlaces con subrayado que aparece al hover (nav, footer): el hover
    se dispara al pasar por el elemento .nav-item completo (el objetivo
    táctil de 44px), no solo por el texto de dentro. */
 .nav-item {
@@ -67,19 +67,39 @@ body {
   opacity: 0.7;
 }
 
-/* Filas adyacentes (no activas) de la rueda de idioma — la fila
-   central activa se pinta siempre por `style` inline (color fijo,
-   no depende de hover), así que no necesita clase propia. */
-.locale-wheel-row {
-  opacity: 0.45;
-  transition: opacity 150ms ease;
+/* Rueda de idioma: en reposo solo se ve la fila central (activa,
+   pintada siempre por `style` inline). Al pasar el ratón por encima,
+   el contenedor se expande y las filas adyacentes giran hacia dentro
+   desde detrás de la fila central (rotateX + fade). */
+.locale-wheel {
+  height: 16px;
+  transition: height 220ms cubic-bezier(0.2, 0.7, 0.2, 1);
 }
-.locale-wheel-row:hover {
-  opacity: 0.85;
+.locale-wheel:hover {
+  height: 48px;
+}
+.locale-wheel-row {
+  opacity: 0;
+  transition: opacity 200ms ease, transform 220ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.locale-wheel-row--above {
+  transform: rotateX(-90deg);
+  transform-origin: bottom;
+}
+.locale-wheel-row--below {
+  transform: rotateX(90deg);
+  transform-origin: top;
+}
+.locale-wheel:hover .locale-wheel-row {
+  opacity: 0.7;
+  transform: rotateX(0deg);
+}
+.locale-wheel:hover .locale-wheel-row:hover {
+  opacity: 1;
 }
 
 /* Botón con borde genérico (banner de cookies, paginación del
-   calendario, etc.) — fondo por defecto transparente, sutil en hover. */
+   calendario, etc.), fondo por defecto transparente, sutil en hover. */
 .hairline-button {
   transition: background-color 150ms ease;
 }
@@ -109,7 +129,7 @@ body {
   background-color: var(--session-bg-hover);
 }
 
-/* Reveal orquestado del hero de la home — se dispara una sola vez al
+/* Reveal orquestado del hero de la home, se dispara una sola vez al
    entrar en el viewport (ver HeroReveal). Ningún otro bloque de la
    app anima al hacer scroll (DESIGN.md → Motion). */
 .hero-reveal > * {
