@@ -40,8 +40,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-/app/generated/prisma
-
 # archivos de referencia de diseño (no son código del proyecto)
 MAI Central Hub Dashboard.zip
 MAI Central Hub.html

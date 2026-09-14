@@ -1,4 +1,4 @@
-import type { University } from "@/app/generated/prisma/client";
+import type { University } from "@prisma/client";
 
 // DESIGN.md: única fuente de verdad para estos valores.
 export const COLORS = {

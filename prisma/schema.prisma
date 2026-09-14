@@ -4,10 +4,18 @@
 // Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
+// prisma-client-js SIN output personalizado (a node_modules/.prisma,
+// import "@prisma/client" normal): es la combinación que funciona con
+// Turbopack. El generador nuevo "prisma-client" con output propio
+// tiene un bug conocido de resolución de módulos con Turbopack (issue
+// de Prisma sobre Next.js 16). engineType = "client" evita el binario
+// nativo del motor de consultas (GA desde Prisma 6.16) — eso es lo
+// que soluciona de raíz el "Query Engine not found" en Vercel: el
+// binario nunca hace falta, así que no hay nada que el file tracer
+// pueda dejar fuera.
 generator client {
-  provider      = "prisma-client"
-  output        = "../app/generated/prisma"
-  binaryTargets = ["native", "rhel-openssl-3.0.x"]
+  provider   = "prisma-client-js"
+  engineType = "client"
 }
 
 datasource db {

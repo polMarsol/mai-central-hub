@@ -1,5 +1,5 @@
 import { getTranslations } from "next-intl/server";
-import type { ExamOrDeadlineType, University } from "@/app/generated/prisma/client";
+import type { ExamOrDeadlineType, University } from "@prisma/client";
 import { COLORS } from "@/lib/design";
 import { prisma } from "@/lib/prisma";
 import {

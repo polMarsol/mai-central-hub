@@ -2,7 +2,7 @@
 
 import { useLocale, useTranslations } from "next-intl";
 import { useMemo, useState } from "react";
-import type { ExamOrDeadlineType, University } from "@/app/generated/prisma/client";
+import type { ExamOrDeadlineType, University } from "@prisma/client";
 import { COLORS, UNIVERSITY_COLORS } from "@/lib/design";
 
 export type CalendarEvent = {

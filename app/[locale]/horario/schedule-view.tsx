@@ -2,7 +2,7 @@
 
 import { useLocale, useTranslations } from "next-intl";
 import { useMemo, useState } from "react";
-import type { DayOfWeek, SessionType, University } from "@/app/generated/prisma/client";
+import type { DayOfWeek, SessionType, University } from "@prisma/client";
 import { COLORS, mapsUrl, UNIVERSITY_COLORS, withAlpha } from "@/lib/design";
 
 // Guía docente conjunta del máster, alojada por la FIB/UPC incluso para
