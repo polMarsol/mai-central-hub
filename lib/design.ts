@@ -1,6 +1,6 @@
 import type { University } from "@/app/generated/prisma/client";
 
-// DESIGN.md — única fuente de verdad para estos valores.
+// DESIGN.md: única fuente de verdad para estos valores.
 export const COLORS = {
   background: "#FFFFFF",
   backgroundSecondary: "#FAFAFA",
@@ -20,7 +20,7 @@ export const SYSTEM_FONT_STACK =
 
 // Solo para casos que no puedan usar la utilidad Tailwind `font-display`
 // (p. ej. un valor de --custom-property). 'Latin Modern Roman' no se
-// autoaloja — el navegador cae en 'CMU Serif', que sí servimos.
+// autoaloja: el navegador cae en 'CMU Serif', que sí servimos.
 export const DISPLAY_FONT_STACK = "'Latin Modern Roman', 'CMU Serif', Georgia, serif";
 
 export function mapsUrl(address: string): string {

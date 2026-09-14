@@ -26,14 +26,14 @@ function dateRange(start: string, end: string, labelKey: Holiday["labelKey"], ki
 }
 
 // Festivos y avisos del calendario académico oficial de la FIB/UPC para
-// másters (MEI, MIRI, MAI, MDS), curso 2026-27 — ver
+// másters (MEI, MIRI, MAI, MDS), curso 2026-27: ver
 // CALENDARIO-ACADEMICO.md para la fuente y el detalle. Este calendario
 // es el de UPC: el propio documento avisa de que las asignaturas de UB
 // y URV pueden tener un calendario ligeramente distinto.
 const FIXED_HOLIDAYS: Holiday[] = [
   { date: "2026-09-03", labelKey: "welcomeEventExchange", kind: "note" },
   // La ceremonia inicialmente prevista el 9/9 se canceló (Protecció
-  // Civil) y se reprogramó al 16/9 — confirmado por email oficial de
+  // Civil) y se reprogramó al 16/9: confirmado por email oficial de
   // Secretaria FIB (10/9/2026).
   { date: "2026-09-16", labelKey: "welcomeCeremony", kind: "note" },
   { date: "2026-09-11", labelKey: "catalanNationalDay", kind: "holiday" },
@@ -45,11 +45,11 @@ const FIXED_HOLIDAYS: Holiday[] = [
   ...dateRange("2026-12-23", "2027-01-06", "christmasBreak", "holiday"),
 ];
 
-// Primer día de clase real confirmado por asignatura — se marca en la
+// Primer día de clase real confirmado por asignatura: se marca en la
 // rejilla del mes. Ver "Primer día de clase confirmado" en
 // CALENDARIO-ACADEMICO.md. Son fechas reales de cada asignatura, no el
 // inicio genérico del periodo docente de la universidad (que puede ser
-// bastante anterior) — el caso de IML (corrección oficial de la
+// bastante anterior): el caso de IML (corrección oficial de la
 // profesora) demostró que esa asunción puede ser incorrecta, así que
 // aquí solo se cargan fechas confirmadas explícitamente.
 const CLASS_START_DATA: { subjectCode: string; date: string; noteKey?: ClassStart["noteKey"] }[] = [
@@ -61,7 +61,7 @@ const CLASS_START_DATA: { subjectCode: string; date: string; noteKey?: ClassStar
   { subjectCode: "CI", date: "2026-10-01" },
 ];
 
-// Inicio de curso institucional (no del máster) — ver
+// Inicio de curso institucional (no del máster): ver
 // CALENDARIO-ACADEMICO.md. Las direcciones y el enlace a Google Maps de
 // cada universidad viven en /horario.
 const INSTITUTION_START_DATA: { code: University; date: string }[] = [
@@ -80,7 +80,7 @@ export default async function CalendarioPage() {
   const subjectIds = subjects.map((subject) => subject.id);
 
   // Un examen aplica a los 3 grupos por igual (ver prisma/seed.ts), así
-  // que se guarda una fila por grupo — aquí se deduplica por
+  // que se guarda una fila por grupo: aquí se deduplica por
   // asignatura+fecha+tipo para no repetir la misma fila 3 veces.
   const examsRaw = subjectIds.length
     ? await prisma.examOrDeadline.findMany({

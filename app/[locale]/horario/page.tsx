@@ -5,7 +5,7 @@ import { ScheduleView, type Location, type SessionSlot, type SubjectOption } fro
 
 const SEMESTER = 1;
 
-// Direcciones reales — ver CALENDARIO-ACADEMICO.md. Las fechas de
+// Direcciones reales: ver CALENDARIO-ACADEMICO.md. Las fechas de
 // inicio de curso viven en /calendario, no aquí.
 const LOCATIONS: Location[] = [
   { code: "UPC", address: "C/ Jordi Girona 1-3, Campus Nord, 08034 Barcelona" },

@@ -12,7 +12,7 @@ import {
 } from "@/lib/cookie-consent";
 
 // Banner de consentimiento para las cookies de publicidad (Google
-// AdSense, cuando esté activo — ver DESIGN.md/CLAUDE.md). "Aceptar" y
+// AdSense, cuando esté activo: ver DESIGN.md/CLAUDE.md). "Aceptar" y
 // "Rechazar" tienen el mismo peso visual a propósito: ninguno de los
 // dos botones está resaltado sobre el otro (criterio AEPD/RGPD).
 export function CookieConsentBanner() {

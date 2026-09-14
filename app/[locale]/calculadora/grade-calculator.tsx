@@ -15,7 +15,7 @@ type ComponentRow = {
   value: string;
   // Nombre bajo el que este componente está persistido ahora mismo en
   // UserGrade (null si nunca se ha guardado). Al renombrar hay que
-  // borrar la fila antigua antes de crear la nueva — el nombre es la
+  // borrar la fila antigua antes de crear la nueva: el nombre es la
   // clave (ver UserGrade.component en el schema).
   savedAs: string | null;
 };
@@ -147,7 +147,7 @@ export function GradeCalculator({
 
   // Se llama al perder el foco de nombre o nota: guarda (o borra, si se
   // ha vaciado la nota) el valor real en UserGrade. El peso nunca se
-  // persiste — se introduce de nuevo cada vez (así lo decidiste).
+  // persiste: se introduce de nuevo cada vez (así lo decidiste).
   function persist(row: ComponentRow) {
     if (!anonId) return;
     const trimmedName = row.name.trim();
@@ -234,7 +234,7 @@ export function GradeCalculator({
                   value={row.value}
                   onChange={(e) => updateRow(row.key, { value: e.target.value })}
                   onBlur={() => persist(row)}
-                  placeholder="—"
+                  placeholder="?"
                   className="min-h-11 rounded-md px-3 text-base"
                   style={{ border: `1px solid ${COLORS.hairline}`, color: COLORS.textPrimary }}
                 />

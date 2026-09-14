@@ -46,7 +46,7 @@ export type InstitutionStart = {
   date: string; // YYYY-MM-DD
 };
 
-const GRID_LENGTH = 42; // 6 semanas — cubre cualquier mes con margen
+const GRID_LENGTH = 42; // 6 semanas: cubre cualquier mes con margen
 
 function dateKey(date: Date): string {
   return date.toISOString().slice(0, 10);

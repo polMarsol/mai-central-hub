@@ -9,7 +9,7 @@ const SEMESTER = 1;
 export default async function HomePage() {
   const t = await getTranslations("HomePage");
 
-  // Estadísticas reales del semestre activo — nunca cifras de ejemplo
+  // Estadísticas reales del semestre activo: nunca cifras de ejemplo
   // (DESIGN.md → Qué evitar explícitamente).
   const subjects = await prisma.subject.findMany({ where: { semester: SEMESTER } });
   const universityCount = new Set(subjects.map((s) => s.university)).size;

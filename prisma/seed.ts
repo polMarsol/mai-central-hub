@@ -64,7 +64,7 @@ const SUBJECTS = [
 ];
 
 // Corregido a partir de una captura del horario real (sustituye la
-// lectura original de Horari_MAI.pdf para IML/CV/IHLT/CI — PAR e IMAS
+// lectura original de Horari_MAI.pdf para IML/CV/IHLT/CI: PAR e IMAS
 // no cambian). Grups 10, 11 i 12.
 const CLASS_SESSIONS: {
   subjectCode: string;
@@ -74,32 +74,32 @@ const CLASS_SESSIONS: {
   endTime: string;
   type: SessionType;
 }[] = [
-  // IML — dimarts (UB)
+  // IML: dimarts (UB)
   { subjectCode: "IML", groupId: "group-10", dayOfWeek: DayOfWeek.TUESDAY, startTime: "10:00", endTime: "12:00", type: SessionType.THEORY },
   { subjectCode: "IML", groupId: "group-11", dayOfWeek: DayOfWeek.TUESDAY, startTime: "12:00", endTime: "13:00", type: SessionType.PROBLEMS },
   { subjectCode: "IML", groupId: "group-12", dayOfWeek: DayOfWeek.TUESDAY, startTime: "13:00", endTime: "14:00", type: SessionType.PROBLEMS },
 
-  // CV — dimarts (UB)
+  // CV: dimarts (UB)
   { subjectCode: "CV", groupId: "group-10", dayOfWeek: DayOfWeek.TUESDAY, startTime: "14:00", endTime: "16:00", type: SessionType.THEORY },
   { subjectCode: "CV", groupId: "group-11", dayOfWeek: DayOfWeek.TUESDAY, startTime: "16:00", endTime: "17:00", type: SessionType.PROBLEMS },
   { subjectCode: "CV", groupId: "group-12", dayOfWeek: DayOfWeek.TUESDAY, startTime: "17:00", endTime: "18:00", type: SessionType.PROBLEMS },
 
-  // IHLT — dijous (UPC)
+  // IHLT: dijous (UPC)
   { subjectCode: "IHLT", groupId: "group-10", dayOfWeek: DayOfWeek.THURSDAY, startTime: "10:00", endTime: "12:00", type: SessionType.THEORY },
   { subjectCode: "IHLT", groupId: "group-11", dayOfWeek: DayOfWeek.THURSDAY, startTime: "12:00", endTime: "13:00", type: SessionType.LAB },
   { subjectCode: "IHLT", groupId: "group-12", dayOfWeek: DayOfWeek.THURSDAY, startTime: "13:00", endTime: "14:00", type: SessionType.LAB },
 
-  // PAR — dimecres (URV)
+  // PAR: dimecres (URV)
   { subjectCode: "PAR", groupId: "group-10", dayOfWeek: DayOfWeek.WEDNESDAY, startTime: "11:00", endTime: "13:00", type: SessionType.THEORY },
   { subjectCode: "PAR", groupId: "group-11", dayOfWeek: DayOfWeek.WEDNESDAY, startTime: "16:00", endTime: "17:00", type: SessionType.LAB },
   { subjectCode: "PAR", groupId: "group-12", dayOfWeek: DayOfWeek.WEDNESDAY, startTime: "17:00", endTime: "18:00", type: SessionType.LAB },
 
-  // IMAS — dimecres (URV)
+  // IMAS: dimecres (URV)
   { subjectCode: "IMAS", groupId: "group-10", dayOfWeek: DayOfWeek.WEDNESDAY, startTime: "14:00", endTime: "16:00", type: SessionType.THEORY },
   { subjectCode: "IMAS", groupId: "group-11", dayOfWeek: DayOfWeek.WEDNESDAY, startTime: "17:00", endTime: "18:00", type: SessionType.LAB },
   { subjectCode: "IMAS", groupId: "group-12", dayOfWeek: DayOfWeek.WEDNESDAY, startTime: "16:00", endTime: "17:00", type: SessionType.LAB },
 
-  // CI — dijous (UPC), sessio conjunta 10+11+12
+  // CI: dijous (UPC), sessio conjunta 10+11+12
   { subjectCode: "CI", groupId: "group-10", dayOfWeek: DayOfWeek.THURSDAY, startTime: "15:00", endTime: "18:00", type: SessionType.THEORY_LAB },
   { subjectCode: "CI", groupId: "group-11", dayOfWeek: DayOfWeek.THURSDAY, startTime: "15:00", endTime: "18:00", type: SessionType.THEORY_LAB },
   { subjectCode: "CI", groupId: "group-12", dayOfWeek: DayOfWeek.THURSDAY, startTime: "15:00", endTime: "18:00", type: SessionType.THEORY_LAB },
@@ -110,7 +110,7 @@ function toTimeDate(hhmm: string): Date {
   return new Date(Date.UTC(1970, 0, 1, hours, minutes));
 }
 
-// Fechas reales confirmadas — curs 2026-27, 1r semestre (veure
+// Fechas reales confirmadas: curs 2026-27, 1r semestre (veure
 // CALENDARIO-ACADEMICO.md). Solo se cargan las que están confirmadas
 // oficialmente; IMAS y PAR aún no tienen fecha de examen anunciada.
 const EXAMS: {

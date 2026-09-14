@@ -5,7 +5,7 @@ import { COLORS } from "@/lib/design";
 import { reopenConsentBanner } from "@/lib/cookie-consent";
 
 // Reabre el banner de consentimiento para cambiar la decisión ya
-// tomada (aceptar/rechazar) — vive en el footer junto a Privacidad.
+// tomada (aceptar/rechazar): vive en el footer junto a Privacidad.
 export function CookiePreferencesButton() {
   const t = useTranslations("Footer");
 

@@ -7,7 +7,7 @@ const globalForPrisma = globalThis as unknown as {
 
 // El generador "prisma-client" (a diferencia del clásico
 // "prisma-client-js") solo acepta URLs prisma:// o prisma+postgres://
-// sin un driver adapter — con @prisma/adapter-pg sí puede conectar a
+// sin un driver adapter: con @prisma/adapter-pg sí puede conectar a
 // una URL postgresql:// normal (Supabase u otro Postgres).
 const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL });
 

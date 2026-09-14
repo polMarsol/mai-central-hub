@@ -44,7 +44,7 @@
   },
   "SchedulePage": {
     "title": "Horario",
-    "subtitle": "1r semestre — horario semanal recurrente",
+    "subtitle": "1r semestre, horario semanal recurrente",
     "groupsToShow": "Grupos a mostrar",
     "allSubjects": "Todas las asignaturas",
     "days": {
@@ -116,10 +116,10 @@
     "addComponent": "Añadir componente",
     "removeComponent": "Eliminar componente",
     "targetLabel": "Nota final que quieres conseguir",
-    "savedHint": "Se guarda automáticamente — puedes cerrar y volver más tarde.",
+    "savedHint": "Se guarda automáticamente, puedes cerrar y volver más tarde.",
     "resultEmpty": "Añade al menos un componente con su peso.",
     "resultNoTarget": "Indica la nota final que quieres conseguir.",
-    "resultTooManyUnknowns": "Deja como mucho un componente sin nota — el que quieras calcular.",
+    "resultTooManyUnknowns": "Deja como mucho un componente sin nota: el que quieras calcular.",
     "resultZeroWeight": "El componente que dejas en blanco necesita un peso mayor que 0.",
     "currentAverageHeading": "Tu media con estos datos",
     "resultHeading": "Necesitas en «{component}»",
@@ -130,7 +130,7 @@
   "GoalsPage": {
     "title": "Objetivos",
     "intro": [
-      "Este proyecto nace de una necesidad muy concreta: cursar el Máster en Inteligencia Artificial significa repartir asignaturas entre la UPC, la UB y la URV, cada una con su calendario, su campus virtual y sus criterios de evaluación. Cuadrar los tres a mano, cada semestre, es tedioso y da pie a errores — y un examen que se solapa entre dos universidades puede pillarte por sorpresa si no lo ves venir con tiempo.",
+      "Este proyecto nace de una necesidad muy concreta: cursar el Máster en Inteligencia Artificial significa repartir asignaturas entre la UPC, la UB y la URV, cada una con su calendario, su campus virtual y sus criterios de evaluación. Cuadrar los tres a mano, cada semestre, es tedioso y da pie a errores, y un examen que se solapa entre dos universidades puede pillarte por sorpresa si no lo ves venir con tiempo.",
       "MAI Central Hub existe para resolver justo eso: un único sitio con el horario semanal, el calendario real (festivos, primer día de clase e inicio de curso, exámenes y entregas) y una calculadora de notas, para que veas de un vistazo todo lo que antes tenías que cuadrar a mano entre tres calendarios distintos."
     ],
     "scopeHeading": "En esta primera fase, el objetivo es deliberadamente pequeño",
@@ -142,20 +142,20 @@
       "Sin registro: entras y ya está."
     ],
     "notYetHeading": "Lo que no es, todavía",
-    "notYetBody": "No detecto automáticamente solapamientos entre exámenes de distintas universidades — el calendario los pone a todos en el mismo sitio, pero revisarlos sigue siendo cosa tuya. Tampoco hay extracción automática (parsing) del contenido de las guías docentes, ni sincronización con Atenea o con el Campus Virtual de la UB, ni predicción de carga de trabajo. Puede llegar más adelante, pero solo si esta primera versión demuestra que merece la pena mantenerla."
+    "notYetBody": "No detecto automáticamente solapamientos entre exámenes de distintas universidades: el calendario los pone a todos en el mismo sitio, pero revisarlos sigue siendo cosa tuya. Tampoco hay extracción automática (parsing) del contenido de las guías docentes, ni sincronización con Atenea o con el Campus Virtual de la UB, ni predicción de carga de trabajo. Puede llegar más adelante, pero solo si esta primera versión demuestra que merece la pena mantenerla."
   },
   "AboutPage": {
     "title": "Sobre el proyecto",
     "paragraphs": [
-      "Lo hago yo solo, en el tiempo libre que me deja el propio máster — trátalo como lo que es: un proyecto personal, no un producto con equipo de soporte detrás.",
+      "Lo hago yo solo, en el tiempo libre que me deja el propio máster. Trátalo como lo que es: un proyecto personal, no un producto con equipo de soporte detrás.",
       "Por dentro es Next.js con Prisma y Postgres, desplegado en Vercel. Nada de servicios externos innecesarios ni bases de datos exóticas: cuanto más simple, más fácil de mantener entre clase y clase.",
-      "Los datos del calendario —asignaturas, horarios, festivos, exámenes— los cargo a mano desde los PDFs y avisos oficiales de cada universidad (incluidos emails de correcciones de última hora, como cambios de fecha o de aula). No hay scraping automático: si algo cambia y tarda en actualizarse, dímelo en la página de sugerencias.",
+      "Los datos del calendario (asignaturas, horarios, festivos, exámenes) los cargo a mano desde los PDFs y avisos oficiales de cada universidad, incluidos emails de correcciones de última hora, como cambios de fecha o de aula. No hay scraping automático: si algo cambia y tarda en actualizarse, dímelo en la página de sugerencias.",
       "Si curses el MAI y se te ocurre algo que debería tener, es bastante probable que ya lo tenga anotado. Y si no, ya sabes dónde encontrarme."
     ]
   },
   "FeedbackPage": {
     "title": "Sugerencias",
-    "intro": "¿Algo no cuadra, un horario está mal, o se te ocurre algo que debería tener esta web? Dímelo directamente — no hay formulario ni base de datos de por medio, solo escríbeme.",
+    "intro": "¿Algo no cuadra, un horario está mal, o se te ocurre algo que debería tener esta web? Dímelo directamente, no hay formulario ni base de datos de por medio, solo escríbeme.",
     "emailCta": "Escribir un correo",
     "outro": "Intento responder a todo, aunque el máster a veces le gane la partida al tiempo libre."
   },
@@ -169,11 +169,11 @@
       },
       {
         "heading": "Un identificador anónimo, solo para la calculadora de notas",
-        "body": "Cuando guardas un componente en la calculadora de notas, tu navegador genera un identificador aleatorio y lo guarda en una cookie de larga duración. Ese identificador es lo único que me permite recordar lo que guardaste; no lleva ningún dato personal, es solo un número al azar. El filtro de grupo (10/11/12) del horario NO se guarda en ningún sitio — es solo una vista local de tu navegador que se olvida al recargar."
+        "body": "Cuando guardas un componente en la calculadora de notas, tu navegador genera un identificador aleatorio y lo guarda en una cookie de larga duración. Ese identificador es lo único que me permite recordar lo que guardaste; no lleva ningún dato personal, es solo un número al azar. El filtro de grupo (10/11/12) del horario NO se guarda en ningún sitio: es solo una vista local de tu navegador que se olvida al recargar."
       },
       {
         "heading": "El calendario de clases y exámenes es un dato compartido",
-        "body": "Las asignaturas, los horarios y las fechas de examen son iguales para todo el mundo de un mismo grupo — no tienen nada que ver contigo en particular."
+        "body": "Las asignaturas, los horarios y las fechas de examen son iguales para todo el mundo de un mismo grupo. No tienen nada que ver contigo en particular."
       },
       {
         "heading": "Cookies de publicidad",
@@ -181,15 +181,15 @@
       },
       {
         "heading": "Analítica",
-        "body": "Ahora mismo esta web no usa ningún servicio de analítica. Si en el futuro añado uno, será Plausible o Vercel Analytics — ninguno de los dos usa cookies ni recoge datos personales, así que esto no depende del banner de cookies de publicidad. No uso Google Analytics."
+        "body": "Ahora mismo esta web no usa ningún servicio de analítica. Si en el futuro añado uno, será Plausible o Vercel Analytics: ninguno de los dos usa cookies ni recoge datos personales, así que esto no depende del banner de cookies de publicidad. No uso Google Analytics."
       },
       {
         "heading": "Terceros",
-        "body": "El único tercero con el que comparto algo es Google, a través de AdSense, y solo si aceptas las cookies de publicidad — Google actúa entonces como responsable independiente de esos datos, según sus propias políticas (policies.google.com/technologies/partner-sites). No vendo ni cedo nada a nadie más."
+        "body": "El único tercero con el que comparto algo es Google, a través de AdSense, y solo si aceptas las cookies de publicidad. En ese caso, Google actúa como responsable independiente de esos datos, según sus propias políticas (policies.google.com/technologies/partner-sites). No vendo ni cedo nada a nadie más."
       },
       {
         "heading": "Tus derechos",
-        "body": "Puedes pedirme acceder, corregir o borrar cualquier dato que tenga sobre ti (identificable solo por tu identificador anónimo), u oponerte a su tratamiento — escríbeme a la página de contacto. Si no quedas satisfecho con la respuesta, puedes reclamar ante la Agencia Española de Protección de Datos (aepd.es)."
+        "body": "Puedes pedirme acceder, corregir o borrar cualquier dato que tenga sobre ti (identificable solo por tu identificador anónimo), u oponerte a su tratamiento: escríbeme a la página de contacto. Si no quedas satisfecho con la respuesta, puedes reclamar ante la Agencia Española de Protección de Datos (aepd.es)."
       }
     ],
     "closing": "¿Dudas? Escríbeme en la página de contacto."
@@ -198,6 +198,6 @@
     "title": "Contacto",
     "intro": "Este proyecto lo llevo yo solo, así que si me escribes, me escribes a mí directamente.",
     "emailLabel": "Correo",
-    "outro": "Para sugerencias de horarios, asignaturas que falten o errores, mejor pasa por la página de sugerencias — así queda todo en el mismo sitio."
+    "outro": "Para sugerencias de horarios, asignaturas que falten o errores, mejor pasa por la página de sugerencias, así queda todo en el mismo sitio."
   }
 }

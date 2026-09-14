@@ -21,7 +21,7 @@ function writeConsent(value: ConsentValue) {
 // --- Visibilidad del banner (useSyncExternalStore) ---
 // `manualVisible` permite forzar el banner a mostrarse (reabrir desde
 // el footer) o a ocultarse (justo tras decidir) sin esperar a que
-// cambie la cookie — en cualquier otro caso se deriva de si ya existe
+// cambie la cookie: en cualquier otro caso se deriva de si ya existe
 // una decisión guardada.
 let manualVisible: boolean | null = null;
 let bannerListeners: Array<() => void> = [];
@@ -43,7 +43,7 @@ export function getConsentBannerSnapshot(): boolean {
 }
 
 export function getConsentBannerServerSnapshot(): boolean {
-  return false; // en el servidor nunca se muestra — evita mismatch de hidratación
+  return false; // en el servidor nunca se muestra: evita mismatch de hidratación
 }
 
 export function decideConsent(value: ConsentValue) {

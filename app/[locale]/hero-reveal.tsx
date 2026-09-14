@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 
-// Reveal orquestado del hero de la home — se dispara una sola vez, la
+// Reveal orquestado del hero de la home: se dispara una sola vez, la
 // primera vez que el hero entra en el viewport (DESIGN.md → Motion).
 // Cada hijo directo anima con un pequeño stagger (ver .hero-reveal en
 // globals.css); ningún otro bloque de la app anima al hacer scroll.

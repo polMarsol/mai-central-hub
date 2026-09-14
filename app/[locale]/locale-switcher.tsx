@@ -8,7 +8,7 @@ import { COLORS } from "@/lib/design";
 
 // Rueda vertical: la fila del centro es el idioma activo, arriba/abajo se
 // ven los adyacentes (orden circular). Se gira con la rueda del ratón
-// (onWheel) o pulsando directamente una fila — pensado como control de
+// (onWheel) o pulsando directamente una fila: pensado como control de
 // ratón, no como un <select> nativo ni un menú desplegable.
 const ROW_HEIGHT = 16; // px
 const WHEEL_THRESHOLD = 35; // acumulado de deltaY antes de avanzar un paso

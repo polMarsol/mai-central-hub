@@ -6,7 +6,7 @@ import type { DayOfWeek, SessionType, University } from "@/app/generated/prisma/
 import { COLORS, mapsUrl, UNIVERSITY_COLORS, withAlpha } from "@/lib/design";
 
 // Guía docente conjunta del máster, alojada por la FIB/UPC incluso para
-// asignaturas de UB/URV — el prefijo de idioma en la ruta (es/ca/en)
+// asignaturas de UB/URV: el prefijo de idioma en la ruta (es/ca/en)
 // coincide con los locales de la app. Verificado a mano para las 6
 // asignaturas del 1r semestre.
 function syllabusUrl(code: string, locale: string): string {
@@ -24,7 +24,7 @@ const HOURS = Array.from({ length: HOUR_END - HOUR_START }, (_, i) => HOUR_START
 
 // Las abreviaturas (T/L/P/T+L) coinciden en los tres idiomas (Teoría/Teoria/
 // Theory, Laboratorio/Laboratori/Lab, Problemas/Problemes/Problems), así que
-// no hace falta traducirlas — la palabra completa se usa solo en el `title`.
+// no hace falta traducirlas: la palabra completa se usa solo en el `title`.
 const TYPE_ABBREVIATIONS: Record<SessionType, string> = {
   THEORY: "T",
   LAB: "L",
@@ -214,7 +214,7 @@ function SingleDayGrid({
 }
 
 // Grid semanal completo (lunes-viernes en columnas). Usado en escritorio
-// (≥640px) — ver breakpoint en DESIGN.md.
+// (≥640px): ver breakpoint en DESIGN.md.
 function WeekGrid({
   days,
   sessionsByDay,

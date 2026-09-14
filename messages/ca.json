@@ -44,7 +44,7 @@
   },
   "SchedulePage": {
     "title": "Horari",
-    "subtitle": "1r semestre — horari setmanal recurrent",
+    "subtitle": "1r semestre, horari setmanal recurrent",
     "groupsToShow": "Grups a mostrar",
     "allSubjects": "Totes les assignatures",
     "days": {
@@ -116,10 +116,10 @@
     "addComponent": "Afegir component",
     "removeComponent": "Eliminar component",
     "targetLabel": "Nota final que vols aconseguir",
-    "savedHint": "Es guarda automàticament — pots tancar i tornar més tard.",
+    "savedHint": "Es guarda automàticament, pots tancar i tornar més tard.",
     "resultEmpty": "Afegeix almenys un component amb el seu pes.",
     "resultNoTarget": "Indica la nota final que vols aconseguir.",
-    "resultTooManyUnknowns": "Deixa com a molt un component sense nota — el que vulguis calcular.",
+    "resultTooManyUnknowns": "Deixa com a molt un component sense nota: el que vulguis calcular.",
     "resultZeroWeight": "El component que deixes en blanc necessita un pes més gran que 0.",
     "currentAverageHeading": "La teva mitjana amb aquestes dades",
     "resultHeading": "Necessites a «{component}»",
@@ -130,7 +130,7 @@
   "GoalsPage": {
     "title": "Objectius",
     "intro": [
-      "Aquest projecte neix d'una necessitat molt concreta: cursar el Màster en Intel·ligència Artificial vol dir repartir assignatures entre la UPC, la UB i la URV, cadascuna amb el seu calendari, el seu campus virtual i els seus criteris d'avaluació. Quadrar els tres a mà, cada semestre, és tediós i dona peu a errors — i un examen que se solapa entre dues universitats et pot enxampar per sorpresa si no ho veus venir amb temps.",
+      "Aquest projecte neix d'una necessitat molt concreta: cursar el Màster en Intel·ligència Artificial vol dir repartir assignatures entre la UPC, la UB i la URV, cadascuna amb el seu calendari, el seu campus virtual i els seus criteris d'avaluació. Quadrar els tres a mà, cada semestre, és tediós i dona peu a errors, i un examen que se solapa entre dues universitats et pot enxampar per sorpresa si no ho veus venir amb temps.",
       "MAI Central Hub existeix per resoldre justament això: un únic lloc amb l'horari setmanal, el calendari real (festius, primer dia de classe i inici de curs, exàmens i lliuraments) i una calculadora de notes, perquè vegis d'un cop d'ull tot el que abans havies de quadrar a mà entre tres calendaris diferents."
     ],
     "scopeHeading": "En aquesta primera fase, l'objectiu és deliberadament petit",
@@ -142,20 +142,20 @@
       "Sense registre: entres i ja està."
     ],
     "notYetHeading": "El que encara no és",
-    "notYetBody": "No detecto automàticament solapaments entre exàmens de diferents universitats — el calendari els posa tots al mateix lloc, però revisar-los continua sent cosa teva. Tampoc hi ha extracció automàtica (parsing) del contingut de les guies docents, ni sincronització amb Atenea o amb el Campus Virtual de la UB, ni predicció de càrrega de treball. Pot arribar més endavant, però només si aquesta primera versió demostra que val la pena mantenir-la."
+    "notYetBody": "No detecto automàticament solapaments entre exàmens de diferents universitats: el calendari els posa tots al mateix lloc, però revisar-los continua sent cosa teva. Tampoc hi ha extracció automàtica (parsing) del contingut de les guies docents, ni sincronització amb Atenea o amb el Campus Virtual de la UB, ni predicció de càrrega de treball. Pot arribar més endavant, però només si aquesta primera versió demostra que val la pena mantenir-la."
   },
   "AboutPage": {
     "title": "Sobre el projecte",
     "paragraphs": [
-      "Ho faig jo sol, en el temps lliure que em deixa el mateix màster — tracta'l com el que és: un projecte personal, no un producte amb equip de suport al darrere.",
+      "Ho faig jo sol, en el temps lliure que em deixa el mateix màster. Tracta'l com el que és: un projecte personal, no un producte amb equip de suport al darrere.",
       "Per dins és Next.js amb Prisma i Postgres, desplegat a Vercel. Res de serveis externs innecessaris ni bases de dades exòtiques: com més senzill, més fàcil de mantenir entre classe i classe.",
-      "Les dades del calendari —assignatures, horaris, festius, exàmens— les carrego a mà des dels PDF i avisos oficials de cada universitat (inclosos emails de correccions d'última hora, com canvis de data o d'aula). No hi ha scraping automàtic: si alguna cosa canvia i triga a actualitzar-se, digues-m'ho a la pàgina de suggeriments.",
+      "Les dades del calendari (assignatures, horaris, festius, exàmens) les carrego a mà des dels PDF i avisos oficials de cada universitat, inclosos emails de correccions d'última hora, com canvis de data o d'aula. No hi ha scraping automàtic: si alguna cosa canvia i triga a actualitzar-se, digues-m'ho a la pàgina de suggeriments.",
       "Si curses el MAI i se t'acut alguna cosa que hauria de tenir, és bastant probable que ja la tingui apuntada. I si no, ja saps on trobar-me."
     ]
   },
   "FeedbackPage": {
     "title": "Suggeriments",
-    "intro": "Alguna cosa no quadra, un horari és incorrecte, o se t'acut alguna cosa que hauria de tenir aquesta web? Digues-m'ho directament — no hi ha formulari ni base de dades pel mig, només escriu-me.",
+    "intro": "Alguna cosa no quadra, un horari és incorrecte, o se t'acut alguna cosa que hauria de tenir aquesta web? Digues-m'ho directament, no hi ha formulari ni base de dades pel mig, només escriu-me.",
     "emailCta": "Escriure un correu",
     "outro": "Intento respondre a tot, encara que el màster de vegades guanyi la partida al temps lliure."
   },
@@ -169,11 +169,11 @@
       },
       {
         "heading": "Un identificador anònim, només per a la calculadora de notes",
-        "body": "Quan guardes un component a la calculadora de notes, el teu navegador genera un identificador aleatori i el guarda en una cookie de llarga durada. Aquest identificador és l'únic que em permet recordar el que vas guardar; no porta cap dada personal, és només un número a l'atzar. El filtre de grup (10/11/12) de l'horari NO es guarda enlloc — és només una vista local del teu navegador que s'oblida en recarregar."
+        "body": "Quan guardes un component a la calculadora de notes, el teu navegador genera un identificador aleatori i el guarda en una cookie de llarga durada. Aquest identificador és l'únic que em permet recordar el que vas guardar; no porta cap dada personal, és només un número a l'atzar. El filtre de grup (10/11/12) de l'horari NO es guarda enlloc: és només una vista local del teu navegador que s'oblida en recarregar."
       },
       {
         "heading": "El calendari de classes i exàmens és una dada compartida",
-        "body": "Les assignatures, els horaris i les dates d'examen són iguals per a tothom d'un mateix grup — no tenen res a veure amb tu en particular."
+        "body": "Les assignatures, els horaris i les dates d'examen són iguals per a tothom d'un mateix grup. No tenen res a veure amb tu en particular."
       },
       {
         "heading": "Cookies de publicitat",
@@ -181,15 +181,15 @@
       },
       {
         "heading": "Analítica",
-        "body": "Ara mateix aquesta web no fa servir cap servei d'analítica. Si en el futur n'afegeixo un, serà Plausible o Vercel Analytics — cap dels dos fa servir cookies ni recull dades personals, així que això no depèn del banner de cookies de publicitat. No faig servir Google Analytics."
+        "body": "Ara mateix aquesta web no fa servir cap servei d'analítica. Si en el futur n'afegeixo un, serà Plausible o Vercel Analytics: cap dels dos fa servir cookies ni recull dades personals, així que això no depèn del banner de cookies de publicitat. No faig servir Google Analytics."
       },
       {
         "heading": "Tercers",
-        "body": "L'únic tercer amb qui comparteixo alguna cosa és Google, a través d'AdSense, i només si acceptes les cookies de publicitat — Google actua llavors com a responsable independent d'aquestes dades, segons les seves pròpies polítiques (policies.google.com/technologies/partner-sites). No venc ni cedeixo res a ningú més."
+        "body": "L'únic tercer amb qui comparteixo alguna cosa és Google, a través d'AdSense, i només si acceptes les cookies de publicitat. En aquest cas, Google actua com a responsable independent d'aquestes dades, segons les seves pròpies polítiques (policies.google.com/technologies/partner-sites). No venc ni cedeixo res a ningú més."
       },
       {
         "heading": "Els teus drets",
-        "body": "Pots demanar-me accedir, corregir o esborrar qualsevol dada que tingui sobre tu (identificable només pel teu identificador anònim), o oposar-te al seu tractament — escriu-me a la pàgina de contacte. Si no quedes satisfet amb la resposta, pots reclamar davant l'Agència Espanyola de Protecció de Dades (aepd.es)."
+        "body": "Pots demanar-me accedir, corregir o esborrar qualsevol dada que tingui sobre tu (identificable només pel teu identificador anònim), o oposar-te al seu tractament: escriu-me a la pàgina de contacte. Si no quedes satisfet amb la resposta, pots reclamar davant l'Agència Espanyola de Protecció de Dades (aepd.es)."
       }
     ],
     "closing": "Dubtes? Escriu-me a la pàgina de contacte."
@@ -198,6 +198,6 @@
     "title": "Contacte",
     "intro": "Aquest projecte el porto jo sol, així que si m'escrius, m'escrius a mi directament.",
     "emailLabel": "Correu",
-    "outro": "Per a suggeriments d'horaris, assignatures que faltin o errors, millor passa per la pàgina de suggeriments — així queda tot al mateix lloc."
+    "outro": "Per a suggeriments d'horaris, assignatures que faltin o errors, millor passa per la pàgina de suggeriments, així queda tot al mateix lloc."
   }
 }
